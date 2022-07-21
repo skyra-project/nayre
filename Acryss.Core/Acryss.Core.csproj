@@ -8,15 +8,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+        <Protobuf Include="Protos\greet.proto" GrpcServices="Server"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.40.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Acryss.Database\Acryss.Database.csproj" />
+        <ProjectReference Include="..\Acryss.Database\Acryss.Database.csproj"/>
     </ItemGroup>
 
 </Project>

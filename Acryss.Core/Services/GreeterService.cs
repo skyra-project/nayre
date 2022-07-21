@@ -1,5 +1,4 @@
 using Grpc.Core;
-using Acryss.Core;
 
 namespace Acryss.Core.Services;
 
