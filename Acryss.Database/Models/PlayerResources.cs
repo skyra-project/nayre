@@ -45,29 +45,29 @@ public class PlayerResources
 	public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
 
 	/// <summary>
-	///     The level of the Quarry building. Consumes <seealso cref="Metal" />, consumes <seealso cref="Energy" />.
+	///     The level of the Quarry building. Consumes <see cref="Metal" />, consumes <see cref="Energy" />.
 	/// </summary>
 	public int QuarryLevel { get; set; } = 0;
 
 	/// <summary>
-	///     The level of the Mine building. Produces <seealso cref="Crystal" />, consumes <seealso cref="Energy" />.
+	///     The level of the Mine building. Produces <see cref="Crystal" />, consumes <see cref="Energy" />.
 	/// </summary>
 	public int MineLevel { get; set; } = 0;
 
 	/// <summary>
-	///     The level of the Hydrogen Generator building. Produces <seealso cref="Hydrogen" />, consumes
-	///     <seealso cref="Energy" />.
+	///     The level of the Hydrogen Generator building. Produces <see cref="Hydrogen" />, consumes
+	///     <see cref="Energy" />.
 	/// </summary>
 	public int HydrogenGeneratorLevel { get; set; } = 0;
 
 	/// <summary>
-	///     The level of the Geothermal Generator building. Produces <seealso cref="Energy" />.
+	///     The level of the Geothermal Generator building. Produces <see cref="Energy" />.
 	/// </summary>
 	public int GeothermalGeneratorLevel { get; set; } = 0;
 
 	/// <summary>
-	///     The level of the Fusion Reactor building. Produces <seealso cref="Energy" />, consumes large amounts of
-	///     <seealso cref="Hydrogen" />.
+	///     The level of the Fusion Reactor building. Produces <see cref="Energy" />, consumes large amounts of
+	///     <see cref="Hydrogen" />.
 	/// </summary>
 	/// <remarks>
 	///     The <see cref="Energy" /> generated increases by 10% with each level of
@@ -75,8 +75,8 @@ public class PlayerResources
 	public int FusionReactorLevel { get; set; } = 0;
 
 	/// <summary>
-	///     The level of the Energy Condensation Centre. Produces <seealso cref="ElectronPlasma" />, consumes large amounts of
-	///     <seealso cref="Energy" />.
+	///     The level of the Energy Condensation Centre. Produces <see cref="ElectronPlasma" />, consumes large amounts of
+	///     <see cref="Energy" />.
 	/// </summary>
 	public int EnergyCondensationCentreLevel { get; set; } = 0;
 
