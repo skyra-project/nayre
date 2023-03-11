@@ -1,0 +1,7 @@
+# Nuxt specific files
+.nuxt/
+.nitro/
+.cache/
+.output/
+dist/
+functions/

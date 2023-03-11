@@ -1,0 +1,18 @@
+{
+	"name": "@skyra/nayre-web",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev -p 3001",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@nuxtjs/tailwindcss": "^6.4.1",
+		"@tailwindcss/typography": "^0.5.9",
+		"@vite-pwa/nuxt": "^0.0.6",
+		"nuxt": "^3.2.2",
+		"sitemap": "^7.1.1",
+		"vite-plugin-pwa": "^0.14.4"
+	}
+}
