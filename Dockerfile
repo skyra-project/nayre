@@ -27,6 +27,9 @@ FROM base as base-builder
 ENV NODE_ENV="development"
 
 COPY --chown=node:node tsconfig.base.json .
+COPY --chown=node:node apps/acryss/package.json apps/acryss/package.json
+COPY --chown=node:node apps/frontend/package.json apps/frontend/package.json
+COPY --chown=node:node apps/nayre/package.json apps/nayre/package.json
 
 RUN yarn install --immutable
 
@@ -50,22 +53,26 @@ FROM base-builder as acryss-builder
 COPY --chown=node:node apps/acryss/prisma/ apps/acryss/prisma/
 COPY --chown=node:node apps/acryss/src/ apps/acryss/src/
 
-COPY --chown=node:node apps/acryss/package.json apps/acryss/package.json
-
-RUN yarn workspace run @skyra/acryss prisma:generate
-RUN yarn workspace run @skyra/acryss build
+RUN yarn workspace @skyra/acryss run prisma:generate
+RUN yarn workspace @skyra/acryss run build
 
 ## Runner
 
 FROM base-runner as acryss-runner
 
+COPY --chown=node:node --from=base-builder /usr/src/app/apps/acryss/package.json /usr/src/app/apps/acryss/package.json
 COPY --chown=node:node --from=acryss-builder /usr/src/app/apps/acryss/dist apps/acryss/dist
 COPY --chown=node:node --from=acryss-builder /usr/src/app/apps/acryss/src/.env apps/acryss/src/.env
 
+USER root
+
 RUN yarn workspaces focus @skyra/acryss --production
+RUN chown node:node /usr/src/app/**
+
+USER node
 
 ### Patch .prisma with the built files
-COPY --chown=node:node --from=acryss-builder /usr/src/app/node_modules/.prisma node_modules/.prisma
+COPY --chown=node:node --from=acryss-builder /usr/src/app/node_modules/.prisma /usr/src/app/node_modules/.prisma
 
 CMD [ "yarn", "workspace", "@skyra/acryss", "run", "start" ]
 
@@ -84,7 +91,6 @@ COPY --chown=node:node apps/frontend/server/ apps/frontend/server/
 
 COPY --chown=node:node apps/frontend/app.vue apps/frontend/app.vue
 COPY --chown=node:node apps/frontend/nuxt.config.ts apps/frontend/nuxt.config.ts
-COPY --chown=node:node apps/frontend/package.json apps/frontend/package.json
 COPY --chown=node:node apps/frontend/tailwind.config.ts apps/frontend/tailwind.config.ts
 COPY --chown=node:node apps/frontend/tsconfig.json apps/frontend/tsconfig.json
 
@@ -94,7 +100,7 @@ RUN yarn workspace @skyra/nayre-web run build
 
 FROM base-runner as frontend-runner
 
-COPY --chown=node:node apps/frontend/.output/ .output/
+COPY --chown=node:node --from=frontend-builder apps/frontend/.output/ .output/
 
 USER root
 
@@ -112,18 +118,22 @@ FROM base-builder as nayre-builder
 
 COPY --chown=node:node apps/nayre/src/ apps/nayre/src/
 
-COPY --chown=node:node apps/nayre/package.json apps/nayre/package.json
-
-RUN yarn workspace run @skyra/nayre build
+RUN yarn workspace @skyra/nayre run build
 
 ## Runner
 
 FROM base-runner as nayre-runner
 
+COPY --chown=node:node --from=base-builder /usr/src/app/apps/nayre/package.json /usr/src/app/apps/nayre/package.json
 COPY --chown=node:node --from=nayre-builder /usr/src/app/apps/nayre/dist apps/nayre/dist
-COPY --chown=node:node --from=builder /usr/src/app/apps/nayre/locales apps/nayre/src/locales
+COPY --chown=node:node --from=nayre-builder /usr/src/app/apps/nayre/src/locales apps/nayre/src/locales
 COPY --chown=node:node --from=nayre-builder /usr/src/app/apps/nayre/src/.env apps/nayre/src/.env
 
+USER root
+
 RUN yarn workspaces focus @skyra/nayre --production
+RUN chown node:node /usr/src/app/**
+
+USER node
 
 CMD [ "yarn", "workspace", "@skyra/nayre", "run", "start" ]
