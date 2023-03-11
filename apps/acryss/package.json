@@ -17,7 +17,6 @@
 		"@skyra/env-utilities": "^1.1.0",
 		"@skyra/logger": "^1.0.1",
 		"@skyra/start-banner": "^1.0.2",
-		"nock": "^13.3.0",
 		"tslib": "^2.5.0"
 	}
 }
