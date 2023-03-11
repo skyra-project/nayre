@@ -100,7 +100,7 @@ RUN yarn workspace @skyra/nayre-web run build
 
 FROM base-runner as frontend-runner
 
-COPY --chown=node:node --from=frontend-builder apps/frontend/.output/ .output/
+COPY --chown=node:node --from=frontend-builder /usr/src/app/apps/frontend/.output/ .output/
 
 USER root
 
