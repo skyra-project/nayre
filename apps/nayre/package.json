@@ -25,5 +25,8 @@
 		"discord-api-types": "^0.37.35",
 		"gradient-string": "^2.0.2",
 		"tslib": "^2.5.0"
+	},
+	"devDependencies": {
+		"typescript": "^4.9.5"
 	}
 }
