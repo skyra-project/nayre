@@ -1,0 +1,22 @@
+{
+	"name": "@skyra/acryss",
+	"main": "dist/main.js",
+	"type": "module",
+	"imports": {
+		"#lib/*": "./dist/lib/*.js"
+	},
+	"scripts": {
+		"build": "tsc -b src",
+		"dev": "yarn build && yarn start",
+		"watch": "tsc -b src -w",
+		"start": "node --enable-source-maps dist/main.js",
+		"test": "eslint --ext ts src",
+		"lint": "eslint --fix --ext ts src"
+	},
+	"dependencies": {
+		"@skyra/env-utilities": "^1.1.0",
+		"@skyra/logger": "^1.0.1",
+		"@skyra/start-banner": "^1.0.2",
+		"tslib": "^2.5.0"
+	}
+}

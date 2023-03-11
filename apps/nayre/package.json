@@ -1,0 +1,29 @@
+{
+	"name": "@skyra/nayre",
+	"main": "dist/main.js",
+	"type": "module",
+	"imports": {
+		"#lib/*": "./dist/lib/*.js"
+	},
+	"scripts": {
+		"build": "tsc -b src",
+		"dev": "yarn build && yarn start",
+		"watch": "tsc -b src -w",
+		"start": "node --enable-source-maps dist/main.js",
+		"test": "eslint --ext ts src",
+		"lint": "eslint --fix --ext ts src"
+	},
+	"dependencies": {
+		"@discordjs/builders": "^1.4.0",
+		"@discordjs/collection": "^1.3.0",
+		"@skyra/env-utilities": "^1.1.0",
+		"@skyra/http-framework": "^0.15.3",
+		"@skyra/http-framework-i18n": "^0.6.0",
+		"@skyra/logger": "^1.0.1",
+		"@skyra/shared-http-pieces": "^0.5.1",
+		"@skyra/start-banner": "^1.0.2",
+		"discord-api-types": "^0.37.35",
+		"gradient-string": "^2.0.2",
+		"tslib": "^2.5.0"
+	}
+}
