@@ -5,7 +5,7 @@ commit_message: 'chore(i18n-crowdin): new translations for %original_file_name% 
 append_commit_message: false
 
 files:
-    - source: apps/nayre/src/locales/en-US/**/*.json
-      translation: apps/nayre/src/locales/%locale%/**/%original_file_name%
-    - source: apps/frontend/src/locales/en-US/**/*.json
-      translation: apps/frontend/src/locales/%locale%/**/%original_file_name%
+  - source: apps/nayre/src/locales/en-US/**/*.json
+    translation: apps/nayre/src/locales/%locale%/**/%original_file_name%
+  - source: apps/frontend/src/locales/en-US/**/*.json
+    translation: apps/frontend/src/locales/%locale%/**/%original_file_name%

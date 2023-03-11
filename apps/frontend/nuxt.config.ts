@@ -71,7 +71,7 @@ export default defineNuxtConfig({
 			description: "Skyra Project's RPG Game",
 			display: 'minimal-ui',
 			lang: 'en',
-			name: 'Acryss Game',
+			name: 'Nayre Game',
 			orientation: 'portrait-primary',
 			scope: '/',
 			short_name: 'Acryss',
@@ -80,9 +80,9 @@ export default defineNuxtConfig({
 			icons: manifestIcons,
 			shortcuts: [
 				{
-					name: 'Acryss Game',
-					short_name: 'Acryss Game',
-					description: 'Go to Acryss Game',
+					name: 'Nayre Game',
+					short_name: 'Nayre Game',
+					description: 'Go to Nayre Game',
 					url: '/',
 					icons: manifestIcons
 				}
@@ -96,7 +96,7 @@ export default defineNuxtConfig({
 		head: {
 			charset: 'utf-8',
 			viewport: 'width=device-width, initial-scale=1',
-			title: 'Skyra Blog',
+			title: 'Nayre Game',
 			htmlAttrs: { lang: 'en' },
 			link: [
 				{ rel: 'alternate', href: 'https://game.skyra.pw' },
@@ -119,8 +119,8 @@ export default defineNuxtConfig({
 				{ 'http-equiv': 'Pragma', content: '1y' },
 				{ name: 'apple-mobile-web-app-capable', content: 'yes' },
 				{ name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
-				{ name: 'apple-mobile-web-app-title', content: 'Acryss Game' },
-				{ name: 'application-name', content: 'Acryss Game' },
+				{ name: 'apple-mobile-web-app-title', content: 'Nayre Game' },
+				{ name: 'application-name', content: 'Nayre Game' },
 				{ name: 'audience', content: 'all' },
 				{ name: 'author', content: 'Skyra Project, contact@skyra.pw' },
 				{ name: 'coverage', content: 'Worldwide' },

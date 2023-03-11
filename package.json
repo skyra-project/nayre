@@ -11,7 +11,7 @@
 		"build": "yarn workspaces foreach -ptR run build",
 		"dev": "yarn workspaces foreach -ptR run dev",
 		"watch": "yarn workspaces foreach -ptR run watch",
-		"prisma:generate": "yarn workspace acryss exec \"prisma generate\"",
+		"prisma:generate": "yarn workspace @skyra/acryss exec \"prisma generate\"",
 		"start": "yarn workspaces foreach -ptR run start",
 		"clean": "node scripts/clean.mjs",
 		"test": "yarn workspaces foreach run test",

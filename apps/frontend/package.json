@@ -4,6 +4,7 @@
 		"build": "nuxt build",
 		"dev": "nuxt dev -p 3001",
 		"preview": "nuxt preview",
+		"start": "node .output/server/index.mjs",
 		"postinstall": "nuxt prepare",
 		"format": "prettier --write ."
 	},

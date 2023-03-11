@@ -17,6 +17,13 @@ module.exports = {
 				printWidth: 120,
 				proseWrap: 'always'
 			}
+		},
+		{
+			files: ['*.yml'],
+			options: {
+				tabWidth: 2,
+				useTabs: false
+			}
 		}
 	]
 };
