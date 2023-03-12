@@ -3020,7 +3020,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/integrations@npm:^7.40.0":
+"@sentry/integrations@npm:^7.42.0":
   version: 7.42.0
   resolution: "@sentry/integrations@npm:7.42.0"
   dependencies:
@@ -3032,7 +3032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:^7.40.0":
+"@sentry/node@npm:^7.42.0":
   version: 7.42.0
   resolution: "@sentry/node@npm:7.42.0"
   dependencies:
@@ -3146,17 +3146,17 @@ __metadata:
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/ts-config": ^3.3.4
     "@types/gradient-string": ^1.1.2
-    "@types/node": ^18.14.6
-    "@typescript-eslint/eslint-plugin": ^5.54.0
-    "@typescript-eslint/parser": ^5.54.0
+    "@types/node": ^18.15.0
+    "@typescript-eslint/eslint-plugin": ^5.54.1
+    "@typescript-eslint/parser": ^5.54.1
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.35.0
-    eslint-config-prettier: ^8.6.0
+    eslint: ^8.36.0
+    eslint-config-prettier: ^8.7.0
     eslint-plugin-prettier: ^4.2.1
     husky: ^8.0.3
-    lint-staged: ^13.1.2
+    lint-staged: ^13.2.0
     prettier: ^2.8.4
-    prettier-plugin-tailwindcss: ^0.2.2
+    prettier-plugin-tailwindcss: ^0.2.4
     pretty-quick: ^3.1.3
     typescript: ^4.9.5
     vite: ^4.1.4
@@ -3170,8 +3170,8 @@ __metadata:
   dependencies:
     "@nuxtjs/tailwindcss": ^6.4.1
     "@tailwindcss/typography": ^0.5.9
-    "@vite-pwa/nuxt": ^0.0.6
-    nuxt: ^3.2.2
+    "@vite-pwa/nuxt": ^0.0.7
+    nuxt: ^3.2.3
     sitemap: ^7.1.1
     typescript: ^4.9.5
     vite-plugin-pwa: ^0.14.4
@@ -3188,7 +3188,7 @@ __metadata:
     "@skyra/http-framework": ^0.15.3
     "@skyra/http-framework-i18n": ^0.6.0
     "@skyra/logger": ^1.0.1
-    "@skyra/shared-http-pieces": ^0.5.1
+    "@skyra/shared-http-pieces": ^0.6.0
     "@skyra/start-banner": ^1.0.2
     discord-api-types: ^0.37.35
     gradient-string: ^2.0.2
@@ -3197,19 +3197,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@skyra/shared-http-pieces@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "@skyra/shared-http-pieces@npm:0.5.1"
+"@skyra/shared-http-pieces@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@skyra/shared-http-pieces@npm:0.6.0"
   dependencies:
     "@discordjs/builders": ^1.4.0
     "@discordjs/collection": ^1.3.0
-    "@sentry/integrations": ^7.40.0
-    "@sentry/node": ^7.40.0
+    "@sentry/integrations": ^7.42.0
+    "@sentry/node": ^7.42.0
     "@skyra/http-framework": ^0.15.3
     "@skyra/http-framework-i18n": ^0.6.0
     discord-api-types: ^0.37.35
     tslib: ^2.5.0
-  checksum: 95bde1a216bb2c28c5a377a4ecc68c98df133e3bb80a4452afaff5589ad81281c5e512e32adb2ea51976857a546f0abcbba59e568a9e06d4bad3badc0a75f2a6
+  checksum: c6df33cb818344bb4fca618747c0469d07b984b24ebb0b53d208840eb79e8f4a6b6dc368151ae91cf6b4336f4f750d8b5a51482a615deca8ea76e3879bf0024a
   languageName: node
   linkType: hard
 
@@ -3365,7 +3365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.14.6":
+"@types/node@npm:*, @types/node@npm:^18.15.0":
   version: 18.15.0
   resolution: "@types/node@npm:18.15.0"
   checksum: d81372276dd5053b1743338b61a2178ff9722dc609189d01fc7d1c2acd539414039e0e4780678730514390dad3f29c366a28c29e8dbd5b0025651181f6dd6669
@@ -3448,7 +3448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.33.1, @typescript-eslint/eslint-plugin@npm:^5.54.0":
+"@typescript-eslint/eslint-plugin@npm:^5.33.1, @typescript-eslint/eslint-plugin@npm:^5.54.1":
   version: 5.54.1
   resolution: "@typescript-eslint/eslint-plugin@npm:5.54.1"
   dependencies:
@@ -3472,7 +3472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.33.1, @typescript-eslint/parser@npm:^5.54.0":
+"@typescript-eslint/parser@npm:^5.33.1, @typescript-eslint/parser@npm:^5.54.1":
   version: 5.54.1
   resolution: "@typescript-eslint/parser@npm:5.54.1"
   dependencies:
@@ -3643,16 +3643,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vite-pwa/nuxt@npm:^0.0.6":
-  version: 0.0.6
-  resolution: "@vite-pwa/nuxt@npm:0.0.6"
+"@vite-pwa/nuxt@npm:^0.0.7":
+  version: 0.0.7
+  resolution: "@vite-pwa/nuxt@npm:0.0.7"
   dependencies:
     "@nuxt/kit": ^3.2.0
     vite-plugin-pwa: ^0.14.4
   peerDependencies:
     "@nuxt/kit": ^3.0.0 || ^3.1.0
     vite-plugin-pwa: ^0.14.0
-  checksum: 472c98ee4a2d3be0de1a719c5cf372158fbf86a0140605b4da2fec5ab59dace80247cda9e46839eaa9f52a9eb59d939ed7d7df28683c8d555c3c1ab741d1795a
+  checksum: 90f7dda56e581964180254740a30b344424deeb5ca78ff10a0199a3cd5dfedde3ec97d0891ed515cc9c7017cac59344b1fc6c626154557528df78f0576276883
   languageName: node
   linkType: hard
 
@@ -6186,7 +6186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0, eslint-config-prettier@npm:^8.6.0":
+"eslint-config-prettier@npm:^8.5.0, eslint-config-prettier@npm:^8.7.0":
   version: 8.7.0
   resolution: "eslint-config-prettier@npm:8.7.0"
   peerDependencies:
@@ -6257,7 +6257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.22.0, eslint@npm:^8.35.0":
+"eslint@npm:^8.22.0, eslint@npm:^8.36.0":
   version: 8.36.0
   resolution: "eslint@npm:8.36.0"
   dependencies:
@@ -8438,7 +8438,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^13.1.2":
+"lint-staged@npm:^13.2.0":
   version: 13.2.0
   resolution: "lint-staged@npm:13.2.0"
   dependencies:
@@ -9562,7 +9562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt@npm:^3.2.2":
+"nuxt@npm:^3.2.3":
   version: 3.2.3
   resolution: "nuxt@npm:3.2.3"
   dependencies:
@@ -10603,7 +10603,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.2.2":
+"prettier-plugin-tailwindcss@npm:^0.2.4":
   version: 0.2.4
   resolution: "prettier-plugin-tailwindcss@npm:0.2.4"
   peerDependencies:
