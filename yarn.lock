@@ -3070,6 +3070,7 @@ __metadata:
   dependencies:
     "@prisma/client": ^4.11.0
     "@skyra/env-utilities": ^1.1.0
+    "@skyra/internal": "workspace:^"
     "@skyra/logger": ^1.0.1
     "@skyra/start-banner": ^1.0.2
     prisma: ^4.11.0
@@ -3125,6 +3126,16 @@ __metadata:
   checksum: d9bb3500d0cdb908ecee0cf710a6f320c64248251dd52a0a4e2eafea3654cd4dcc84a1b69635be8cac4c1a62626d7e1485c15005e169c32e5c759275106543b0
   languageName: node
   linkType: hard
+
+"@skyra/internal@workspace:^, @skyra/internal@workspace:packages/internal":
+  version: 0.0.0-use.local
+  resolution: "@skyra/internal@workspace:packages/internal"
+  dependencies:
+    "@skyra/env-utilities": ^1.1.0
+    tslib: ^2.5.0
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
 
 "@skyra/logger@npm:^1.0.1":
   version: 1.0.1
