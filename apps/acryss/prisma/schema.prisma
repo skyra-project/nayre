@@ -102,11 +102,11 @@ model Player {
   researchHull            Int @default(0) @map("research_hull") @db.SmallInt
 
   /// The planets the Player owns.
-  planets          Planet[]
+  planets             Planet[]
   /// The tasks the Player is running.
-  tasks            PlayerTask[]
-  VehicleTaskEntry VehicleTaskPayload[]
-  VehicleTaskCargo VehicleTaskCargo[]
+  tasks               PlayerTask[]
+  vehiclePayloadTasks VehicleTaskPayload[]
+  vehicleCargoTasks   VehicleTaskCargo[]
 
   @@map("player")
 }
@@ -243,6 +243,14 @@ model Planet {
   /// - Energy             6   Single → Shared (+50% shields)
   /// - Shield             6   Single → Dual   (+50% shields)
   vehicleHiivii            Int @default(0) @map("vehicle_hiivii")
+  /// Espionage Probe, has very high speed and is designed to spy other planets.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   1
+  ///
+  /// **Retrofits**:
+  /// - Ion Drive          4   Combustion Drive → Ion Drive
+  vehicleEspionageProbe    Int @default(0) @map("vehicle_espionage_probe")
   /// The cheapest and least powerful interplanetary ship.
   ///
   /// **Requirements**:
@@ -317,14 +325,6 @@ model Planet {
   /// - Attack             10
   /// - Shield             8
   vehicleBallistaDestroyer Int @default(0) @map("vehicle_ballista_destroyer")
-  /// Espionage Probe, has very high speed and is designed to spy other planets.
-  ///
-  /// **Requirements**:
-  /// - Combustion Drive   1
-  ///
-  /// **Retrofits**:
-  /// - Ion Drive          4   Combustion Drive → Ion Drive
-  vehicleEspionageProbe    Int @default(0) @map("vehicle_espionage_probe")
 
   /// The tasks pending on this planet.
   tasks PlanetTask[]
