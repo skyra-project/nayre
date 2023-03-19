@@ -6,6 +6,11 @@ export enum ErrorCode {
 	UnknownToken,
 	UnknownMediaFormat,
 	UnknownUserId,
+	UnknownUniverse = 220,
+	UnknownPlayer,
+	UnknownPlanet,
+	InvalidPlayerId,
+	InvalidPlanetId,
 	InternalError = 250
 }
 

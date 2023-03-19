@@ -1,6 +1,9 @@
 export enum PayloadType {
 	Ok,
-	Error
+	OkGetPlanet,
+	OkGetPlayer,
+	OkGetPlayers,
+	Error = 200
 }
 
 export interface BasePayload<T extends PayloadType> {
