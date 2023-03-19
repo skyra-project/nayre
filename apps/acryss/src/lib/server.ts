@@ -60,8 +60,8 @@ async function handleRequest(userId: bigint, request: IncomingMessage, response:
 		return response.writeHead(500, ErrorHeaders).end(InternalErrorBody);
 	}
 
-	const success = Server.readType(data) === Server.PayloadType.Ok;
-	return response.writeHead(success ? 200 : 400, makeHeaders(data)).end(data);
+	const errored = Server.readType(data) === Server.PayloadType.Error;
+	return response.writeHead(errored ? 400 : 200, makeHeaders(data)).end(data);
 }
 
 const ContentType = 'application/octet-stream';

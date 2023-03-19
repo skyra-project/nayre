@@ -1,7 +1,9 @@
 export enum PayloadType {
 	StartBuildingUpgrade,
 	CancelBuildingUpgrade,
-	GetAll,
+	GetPlayer,
+	GetPlayers,
+	GetPlanet,
 	GetBuildings,
 	Get
 }
