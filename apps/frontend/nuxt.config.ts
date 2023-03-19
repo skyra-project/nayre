@@ -57,7 +57,13 @@ const manifestIcons = [
 ];
 
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/tailwindcss', '@vite-pwa/nuxt'],
+	modules: ['@nuxtjs/tailwindcss', '@vite-pwa/nuxt', '@sidebase/nuxt-auth'],
+	auth: {
+		origin: process.env.ORIGIN,
+		enableGlobalAppMiddleware: true,
+		basePath: '/api/auth',
+		defaultProvider: 'discord'
+	},
 	pwa: {
 		registerType: 'autoUpdate',
 		includeManifestIcons: false,
