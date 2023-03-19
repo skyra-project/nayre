@@ -1,7 +1,12 @@
 import { PayloadType, type BasePayload } from './base.js';
 
 export enum ErrorCode {
-	NotEnoughResources
+	NotEnoughResources,
+	UnknownRoute = 200,
+	UnknownToken,
+	UnknownMediaFormat,
+	UnknownUserId,
+	InternalError = 250
 }
 
 export interface ErrorPayload extends BasePayload<PayloadType.Error> {

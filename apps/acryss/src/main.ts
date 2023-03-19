@@ -1,3 +1,10 @@
-// import { } from '@skyra/internal';
+import { logger } from '#lib/logger';
+import { server } from '#lib/server';
+import { envParseInteger, envParseString } from '@skyra/env-utilities';
 
-export default undefined;
+server
+	.listen({
+		port: envParseInteger('API_PORT'),
+		host: envParseString('API_ADDRESS')
+	})
+	.on('error', (error) => logger.error(error));
