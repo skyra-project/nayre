@@ -26,7 +26,7 @@ export function readError(buffer: Buffer): ErrorPayload {
 }
 
 export function writeError(data: Omit<ErrorPayload, 'type'>): Buffer {
-	const buffer = Buffer.allocUnsafe(1);
+	const buffer = Buffer.allocUnsafe(2);
 	buffer.writeUInt8(PayloadType.Error, 0);
 	buffer.writeUInt8(data.code, 1);
 	return buffer;
