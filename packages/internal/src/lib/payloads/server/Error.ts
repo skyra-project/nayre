@@ -11,6 +11,7 @@ export enum ErrorCode {
 	UnknownPlanet,
 	InvalidPlayerId,
 	InvalidPlanetId,
+	UniverseAlreadyCreated = 240,
 	InternalError = 250
 }
 

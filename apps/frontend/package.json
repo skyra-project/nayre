@@ -2,7 +2,7 @@
 	"name": "@skyra/nayre-web",
 	"scripts": {
 		"build": "nuxt build",
-		"dev": "nuxt dev -p 3001",
+		"dev": "nuxt dev -p 3200",
 		"preview": "nuxt preview",
 		"start": "node .output/server/index.mjs",
 		"postinstall": "nuxt prepare",
