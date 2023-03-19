@@ -5,7 +5,8 @@ export enum PayloadType {
 	GetPlayers,
 	GetPlanet,
 	GetBuildings,
-	Get
+	CreateUniverse = 240,
+	DeleteUniverse
 }
 
 export interface BasePayload<T extends PayloadType> {

@@ -18,3 +18,7 @@ export interface BasePayload<T extends PayloadType> {
 export function readType(buffer: Buffer): PayloadType {
 	return buffer.readUInt8(0);
 }
+
+export function isOk(buffer: Buffer) {
+	return readType(buffer) !== PayloadType.Error;
+}
