@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@prisma/client": "^4.11.0",
+		"@sapphire/utilities": "3.11.0",
 		"@skyra/env-utilities": "^1.1.0",
 		"@skyra/internal": "workspace:^",
 		"@skyra/logger": "^1.0.1",

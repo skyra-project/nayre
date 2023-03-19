@@ -9,11 +9,11 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "yarn workspaces foreach -ptR run build",
-		"dev": "yarn workspaces foreach -ptR run dev",
-		"watch": "yarn workspaces foreach -ptR run watch",
+		"build": "yarn workspaces foreach -pt run build",
+		"dev": "yarn workspaces foreach -pt run dev",
+		"watch": "yarn workspaces foreach -pt run watch",
 		"prisma:generate": "yarn workspace @skyra/acryss exec \"prisma generate\"",
-		"start": "yarn workspaces foreach -ptR run start",
+		"start": "yarn workspaces foreach -pt run start",
 		"clean": "node scripts/clean.mjs",
 		"test": "yarn workspaces foreach run test",
 		"lint": "yarn workspaces foreach run lint",
@@ -29,9 +29,9 @@
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
 		"@types/gradient-string": "^1.1.2",
-		"@types/node": "^18.15.0",
-		"@typescript-eslint/eslint-plugin": "^5.54.1",
-		"@typescript-eslint/parser": "^5.54.1",
+		"@types/node": "^18.15.3",
+		"@typescript-eslint/eslint-plugin": "^5.55.0",
+		"@typescript-eslint/parser": "^5.55.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.36.0",
 		"eslint-config-prettier": "^8.7.0",
@@ -39,11 +39,11 @@
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.0",
 		"prettier": "^2.8.4",
-		"prettier-plugin-tailwindcss": "^0.2.4",
+		"prettier-plugin-tailwindcss": "^0.2.5",
 		"pretty-quick": "^3.1.3",
 		"typescript": "^4.9.5",
-		"vite": "^4.1.4",
-		"vitest": "^0.29.2"
+		"vite": "^4.2.0",
+		"vitest": "^0.29.3"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
