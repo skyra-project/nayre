@@ -19,23 +19,19 @@ for await (const dirent of await opendir(RoutesBasePath)) {
 }
 
 export const server = createServer({ keepAlive: true, requestTimeout: 5000, uniqueHeaders: ['x-user-id'] }, (request, response) => {
-	console.log('1');
 	if (request.headers.authorization !== InternalApiToken) {
 		return response.writeHead(401, ErrorHeaders).end(UnauthorizedBody);
 	}
 
-	console.log('2');
 	if (request.headers['content-type'] !== ContentType) {
 		return response.writeHead(415, ErrorHeaders).end(UnsupportedMediaTypeBody);
 	}
 
-	console.log('3');
 	const userId = getUserId(request.headers['x-user-id'] as string | undefined);
 	if (isNullish(userId)) {
 		return response.writeHead(400, ErrorHeaders).end(UnknownUserIdBody);
 	}
 
-	console.log('4');
 	return handleRequest(userId, request, response);
 });
 
