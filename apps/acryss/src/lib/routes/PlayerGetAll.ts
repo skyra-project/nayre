@@ -11,5 +11,5 @@ registerRoute(import.meta.url, async (userId) => {
 			planets: { select: { id: true, planetId: true } }
 		}
 	});
-	return Server.writeOkGetPlayers({ players });
+	return Server.writeOkPlayerGetAll({ players });
 });

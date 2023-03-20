@@ -4,11 +4,14 @@ import { isNullish } from '@sapphire/utilities';
 import { Client, Server } from '@skyra/internal';
 
 registerRoute(import.meta.url, async (userId, buffer) => {
-	const data = Client.readGetPlanet(buffer);
-	const planet = await prisma.planet.findUnique({ where: { id: data.id }, include: { owner: { select: { userId: true } } } });
+	const data = Client.readPlanetGet(buffer);
+	const planet = await prisma.planet.findFirst({
+		where: { id: data.planetId, universeId: data.universeId },
+		include: { owner: { select: { userId: true } } }
+	});
 	if (isNullish(planet)) return Server.writeError({ code: Server.ErrorCode.UnknownPlanet });
 	if (planet.owner.userId !== userId) return Server.writeError({ code: Server.ErrorCode.InvalidPlayerId });
-	return Server.writeOkGetPlanet({
+	return Server.writeOkPlanetGet({
 		resources: {
 			metal: planet.resourceMetal,
 			crystal: planet.resourceCrystal,
