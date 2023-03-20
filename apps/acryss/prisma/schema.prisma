@@ -22,6 +22,11 @@ model Universe {
   /// The Guild ID. Or Multiverse if it's 0.
   id BigInt @id
 
+  /// The name of the universe, defaults to the guild's name.
+  name    String
+  /// The amount of systems this universe has, each with 12 planets.
+  systems Int
+
   /// The players the universe has.
   players Player[]
   /// The colonized planets the universe has.
@@ -125,6 +130,11 @@ model Planet {
   owner      Player   @relation(fields: [ownerId], references: [id])
   /// The ID of the user who owns this planet.
   ownerId    BigInt   @map("owner")
+
+  /// The user-given name for the planet.
+  name        String
+  /// The time the planet was colonized at.
+  colonizedAt DateTime @default(now()) @map("colonized_at")
 
   // Resources
   /// The amount of Metal the planet has.

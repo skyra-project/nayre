@@ -56,6 +56,8 @@ registerRoute(import.meta.url, async (userId, buffer) => {
 			destroyer: planet.vehicleDestroyer,
 			ballistaBomber: planet.vehicleBallistaBomber,
 			ballistaDestroyer: planet.vehicleBallistaDestroyer
-		}
+		},
+		colonizedAt: planet.colonizedAt.getTime(),
+		name: planet.name
 	});
 });

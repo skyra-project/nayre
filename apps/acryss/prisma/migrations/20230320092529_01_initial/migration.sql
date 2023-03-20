@@ -17,6 +17,8 @@ CREATE TABLE "user" (
 -- CreateTable
 CREATE TABLE "universe" (
     "id" BIGINT NOT NULL,
+    "name" TEXT NOT NULL,
+    "systems" INTEGER NOT NULL,
 
     CONSTRAINT "universe_pkey" PRIMARY KEY ("id")
 );
@@ -50,6 +52,8 @@ CREATE TABLE "planet" (
     "planet" INTEGER NOT NULL,
     "universe" BIGINT NOT NULL,
     "owner" BIGINT NOT NULL,
+    "name" TEXT NOT NULL,
+    "colonized_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "resource_metal" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "resource_crystal" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "resource_hydrogen" DOUBLE PRECISION NOT NULL DEFAULT 0,
@@ -79,6 +83,7 @@ CREATE TABLE "planet" (
     "vehicle_heavy_cargo_ship" INTEGER NOT NULL DEFAULT 0,
     "vehicle_interceptor_jet" INTEGER NOT NULL DEFAULT 0,
     "vehicle_hiivii" INTEGER NOT NULL DEFAULT 0,
+    "vehicle_espionage_probe" INTEGER NOT NULL DEFAULT 0,
     "vehicle_fighter" INTEGER NOT NULL DEFAULT 0,
     "vehicle_advanced_fighter" INTEGER NOT NULL DEFAULT 0,
     "vehicle_cruiser" INTEGER NOT NULL DEFAULT 0,
@@ -88,7 +93,6 @@ CREATE TABLE "planet" (
     "vehicle_destroyer" INTEGER NOT NULL DEFAULT 0,
     "vehicle_ballista_bomber" INTEGER NOT NULL DEFAULT 0,
     "vehicle_ballista_destroyer" INTEGER NOT NULL DEFAULT 0,
-    "vehicle_espionage_probe" INTEGER NOT NULL DEFAULT 0,
 
     CONSTRAINT "planet_pkey" PRIMARY KEY ("id")
 );

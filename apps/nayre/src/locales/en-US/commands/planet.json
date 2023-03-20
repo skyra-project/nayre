@@ -1,4 +1,9 @@
 {
 	"name": "planet",
-	"description": "Manages your planets"
+	"description": "Manages your planets",
+	"initializeName": "initialize",
+	"initializeDescription": "Initializes your player in this server's universe",
+	"initializeSuccess": "Successfully settled at {{coordinates}}.",
+	"initializeErrorUnknownUniverse": "There is no universe set up in this server, please contact the administrators to set one up.",
+	"initializeErrorAlreadyInitialized": "You are already settled in this server's universe."
 }
