@@ -1,6 +1,10 @@
 {
 	"name": "universe",
 	"description": "Manages your universe",
+	"optionsSystemsName": "systems",
+	"optionsSystemsDescription": "The amount of systems to create (default: ¼ the server's member count)",
+	"optionsNameName": "name",
+	"optionsNameDescription": "The name of the universe (default: the server's name)",
 	"initializeName": "initialize",
 	"initializeDescription": "Sets up the universe",
 	"initializeSuccess": "Successfully initialized a new universe, you may play now.",

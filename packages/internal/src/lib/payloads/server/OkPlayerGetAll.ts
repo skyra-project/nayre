@@ -1,6 +1,6 @@
 import { PayloadType, type BasePayload } from './base.js';
 
-export interface OkGetPlayersPayload extends BasePayload<PayloadType.OkGetPlayers> {
+export interface OkPlayerGetAllPayload extends BasePayload<PayloadType.OkPlayerGetAll> {
 	players: Player[];
 }
 
@@ -15,7 +15,7 @@ interface Planet {
 	planetId: number;
 }
 
-export function readOkGetPlayers(buffer: Buffer): OkGetPlayersPayload {
+export function readOkPlayerGetAll(buffer: Buffer): OkPlayerGetAllPayload {
 	let offset = 1;
 	const players = [] as Player[];
 	for (let i = 0, m = buffer.readUInt8(offset++); i < m; ++i) {
@@ -37,14 +37,14 @@ export function readOkGetPlayers(buffer: Buffer): OkGetPlayersPayload {
 		players.push(player);
 	}
 
-	return { type: PayloadType.OkGetPlayers, players };
+	return { type: PayloadType.OkPlayerGetAll, players };
 }
 
-export function writeOkGetPlayers(data: Omit<OkGetPlayersPayload, 'type'>): Buffer {
+export function writeOkPlayerGetAll(data: Omit<OkPlayerGetAllPayload, 'type'>): Buffer {
 	const playersSize = 17 * data.players.length;
 	const planetsSize = data.players.reduce((acc, player) => acc + player.planets.length, 0) * 12;
 	const buffer = Buffer.allocUnsafe(2 + playersSize + planetsSize);
-	buffer.writeUInt8(PayloadType.OkGetPlayers, 0);
+	buffer.writeUInt8(PayloadType.OkPlayerGetAll, 0);
 
 	let offset = 1;
 	buffer.writeUInt8(data.players.length, offset++);

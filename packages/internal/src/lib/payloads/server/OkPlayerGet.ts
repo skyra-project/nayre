@@ -1,6 +1,6 @@
 import { PayloadType, type BasePayload } from './base.js';
 
-export interface OkGetPlayerPayload extends BasePayload<PayloadType.OkGetPlayer> {
+export interface OkPlayerGetPayload extends BasePayload<PayloadType.OkPlayerGet> {
 	research: Research;
 	planets: Planet[];
 	tasks: [];
@@ -29,7 +29,7 @@ interface Research {
 	hull: number;
 }
 
-export function readOkGetPlayer(buffer: Buffer): OkGetPlayerPayload {
+export function readOkPlayerGet(buffer: Buffer): OkPlayerGetPayload {
 	let offset = 16;
 	const planets = [] as Planet[];
 	for (let i = 0, m = buffer.readUInt8(15); i < m; ++i) {
@@ -38,7 +38,7 @@ export function readOkGetPlayer(buffer: Buffer): OkGetPlayerPayload {
 	}
 
 	return {
-		type: PayloadType.OkGetPlayer,
+		type: PayloadType.OkPlayerGet,
 		research: {
 			energy: buffer.readUInt8(1),
 			electromagnet: buffer.readUInt8(2),
@@ -62,10 +62,10 @@ export function readOkGetPlayer(buffer: Buffer): OkGetPlayerPayload {
 	};
 }
 
-export function writeOkGetPlayer(data: Omit<OkGetPlayerPayload, 'type'>): Buffer {
+export function writeOkPlayerGet(data: Omit<OkPlayerGetPayload, 'type'>): Buffer {
 	const ChunkPlanets = 1 + data.planets.length * 4;
 	const buffer = Buffer.allocUnsafe(15 + ChunkPlanets);
-	buffer.writeUInt8(PayloadType.OkGetPlayer, 0);
+	buffer.writeUInt8(PayloadType.OkPlayerGet, 0);
 
 	// research
 	buffer.writeUInt8(data.research.energy, 1);

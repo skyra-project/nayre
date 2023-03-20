@@ -1,8 +1,9 @@
 export enum PayloadType {
 	Ok,
-	OkGetPlanet,
-	OkGetPlayer,
-	OkGetPlayers,
+	OkPlanetGet,
+	OkPlanetGetAll,
+	OkPlayerGet,
+	OkPlayerGetAll,
 	Error = 200
 }
 
@@ -21,4 +22,8 @@ export function readType(buffer: Buffer): PayloadType {
 
 export function isOk(buffer: Buffer) {
 	return readType(buffer) !== PayloadType.Error;
+}
+
+export function isError(buffer: Buffer) {
+	return readType(buffer) === PayloadType.Error;
 }
