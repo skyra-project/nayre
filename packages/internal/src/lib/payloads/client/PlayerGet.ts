@@ -2,21 +2,18 @@ import { BasePayloadOffset, PayloadType, writeType, type BasePayload } from './b
 
 export interface PlayerGetPayload extends BasePayload<PayloadType.PlayerGet> {
 	readonly universeId: bigint;
-	readonly userId: bigint;
 }
 
 export function readPlayerGet(buffer: Buffer): PlayerGetPayload {
 	return {
 		type: PayloadType.PlayerGet,
-		universeId: buffer.readBigUInt64LE(BasePayloadOffset),
-		userId: buffer.readBigUInt64LE(BasePayloadOffset + 8)
+		universeId: buffer.readBigUInt64LE(BasePayloadOffset)
 	};
 }
 
 export function writePlayerGet(data: Omit<PlayerGetPayload, 'type'>): Buffer {
-	const buffer = Buffer.allocUnsafe(BasePayloadOffset + 16);
+	const buffer = Buffer.allocUnsafe(BasePayloadOffset + 8);
 	writeType(buffer, PayloadType.PlayerGet);
 	buffer.writeBigUInt64LE(data.universeId, BasePayloadOffset);
-	buffer.writeBigUInt64LE(data.userId, BasePayloadOffset + 8);
 	return buffer;
 }

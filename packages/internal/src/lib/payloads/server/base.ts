@@ -4,6 +4,7 @@ export enum PayloadType {
 	OkPlanetGetAll,
 	OkPlayerGet,
 	OkPlayerGetAll,
+	OkPlayerCreate,
 	Error = 200
 }
 
