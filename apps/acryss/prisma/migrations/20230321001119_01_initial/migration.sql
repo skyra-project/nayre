@@ -28,6 +28,7 @@ CREATE TABLE "player" (
     "id" BIGSERIAL NOT NULL,
     "universe" BIGINT NOT NULL,
     "user" BIGINT NOT NULL,
+    "points" BIGINT NOT NULL DEFAULT 0,
     "research_energy" SMALLINT NOT NULL DEFAULT 0,
     "research_electromagnet" SMALLINT NOT NULL DEFAULT 0,
     "research_laser" SMALLINT NOT NULL DEFAULT 0,

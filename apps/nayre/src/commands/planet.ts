@@ -1,31 +1,34 @@
 import { LanguageKeys } from '#lib/i18n/LanguageKeys';
 import { acryssRequest } from '#lib/utilities/acryss';
+import { inlineCode } from '@discordjs/builders';
 import { Command, RegisterCommand, RegisterSubCommand } from '@skyra/http-framework';
 import { applyLocalizedBuilder, resolveUserKey } from '@skyra/http-framework-i18n';
-import { Client, Server } from '@skyra/internal';
+import { Client, displayPlanetId, Server } from '@skyra/internal';
 import { MessageFlags } from 'discord-api-types/v10';
 
 const Root = LanguageKeys.Commands.Planet;
 
-@RegisterCommand((builder) =>
-	applyLocalizedBuilder(builder, Root.RootName, Root.RootDescription)
-		// TODO: Re-enable when the multiverse is ready.
-		.setDMPermission(false)
-)
+@RegisterCommand((builder) => applyLocalizedBuilder(builder, Root.RootName, Root.RootDescription).setDMPermission(false))
 export class UserCommand extends Command {
 	public override async autocompleteRun(interaction: Command.AutocompleteInteraction) {
 		const response = await acryssRequest(interaction.user.id, Client.writePlanetGetAll({ universeId: BigInt(interaction.guildId!) }));
 		if (Server.isError(response)) return interaction.replyEmpty();
 
 		const payload = Server.readOkPlanetGetAll(response);
-		return interaction.reply({ choices: payload.planets.map((planet) => ({ name: planet.name, value: planet.name })) });
+		return interaction.reply({
+			choices: payload.planets.map((planet) => {
+				const coordinates = displayPlanetId(planet.planetId);
+				return { name: `${coordinates} — ${planet.name}`, value: coordinates };
+			})
+		});
 	}
 
 	@RegisterSubCommand((builder) => applyLocalizedBuilder(builder, Root.Initialize))
 	public async initialize(interaction: Command.ChatInputInteraction) {
 		const response = await acryssRequest(interaction.user.id, Client.writePlayerCreate({ universeId: BigInt(interaction.guildId!) }));
 		if (Server.isOk(response)) {
-			const content = resolveUserKey(interaction, Root.InitializeSuccess, { coordinates: '1:0' });
+			const coordinates = displayPlanetId(Server.readOkPlayerCreate(response).planetId);
+			const content = resolveUserKey(interaction, Root.InitializeSuccess, { coordinates: inlineCode(coordinates) });
 			return interaction.reply({ content, flags: MessageFlags.Ephemeral });
 		}
 
@@ -33,5 +36,27 @@ export class UserCommand extends Command {
 		const key = code === Server.ErrorCode.PlayerAlreadyCreated ? Root.InitializeErrorAlreadyInitialized : Root.InitializeErrorUnknownUniverse;
 		const content = resolveUserKey(interaction, key);
 		return interaction.reply({ content, flags: MessageFlags.Ephemeral });
+	}
+
+	@RegisterSubCommand((builder) =>
+		applyLocalizedBuilder(builder, Root.Get) //
+			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsPlanet).setAutocomplete(true).setRequired(true))
+	)
+	public async get(interaction: Command.ChatInputInteraction) {
+		void interaction;
+	}
+
+	@RegisterSubCommand((builder) =>
+		applyLocalizedBuilder(builder, Root.Edit)
+			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsPlanet).setAutocomplete(true).setRequired(true))
+			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsName))
+	)
+	public async edit(interaction: Command.ChatInputInteraction) {
+		void interaction;
+	}
+
+	@RegisterSubCommand((builder) => applyLocalizedBuilder(builder, Root.List))
+	public async list(interaction: Command.ChatInputInteraction) {
+		void interaction;
 	}
 }
