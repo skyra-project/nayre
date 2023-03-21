@@ -48,6 +48,9 @@ model Player {
   /// The ID of the user who owns this account.
   userId     BigInt   @map("user")
 
+  /// The amount of points the user has.
+  points BigInt @default(0)
+
   /// Increases the energy generation.
   researchEnergy          Int @default(0) @map("research_energy") @db.SmallInt
   /// Increases effectiveness of Quarry per level.

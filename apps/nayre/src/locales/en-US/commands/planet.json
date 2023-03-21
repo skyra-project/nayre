@@ -1,9 +1,19 @@
 {
 	"name": "planet",
 	"description": "Manages your planets",
+	"optionsPlanetName": "planet",
+	"optionsPlanetDescription": "The planet to manage",
+	"optionsNameName": "name",
+	"optionsNameDescription": "The new name to use",
 	"initializeName": "initialize",
 	"initializeDescription": "Initializes your player in this server's universe",
 	"initializeSuccess": "Successfully settled at {{coordinates}}.",
 	"initializeErrorUnknownUniverse": "There is no universe set up in this server, please contact the administrators to set one up.",
-	"initializeErrorAlreadyInitialized": "You are already settled in this server's universe."
+	"initializeErrorAlreadyInitialized": "You are already settled in this server's universe.",
+	"getName": "get",
+	"getDescription": "Gets the information about a planet",
+	"editName": "edit",
+	"editDescription": "Edits one of your planets",
+	"listName": "list",
+	"listDescription": "Lists all of your planets"
 }
