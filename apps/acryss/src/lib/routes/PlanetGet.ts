@@ -48,7 +48,7 @@ registerRoute(import.meta.url, async (userId, buffer) => {
 			cargoShip: planet.vehicleCargoShip,
 			heavyCargoShip: planet.vehicleHeavyCargoShip,
 			interceptorJet: planet.vehicleInterceptorJet,
-			hiivii: planet.vehicleHiivii,
+			hivii: planet.vehicleHivii,
 			espionageProbe: planet.vehicleEspionageProbe,
 			fighter: planet.vehicleFighter,
 			advancedFighter: planet.vehicleAdvancedFighter,

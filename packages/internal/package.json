@@ -13,14 +13,18 @@
 		"build": "tsc -b src",
 		"dev": "yarn build && yarn start",
 		"watch": "tsc -b src -w",
-		"test": "eslint --ext ts src",
+		"test": "vitest run",
 		"lint": "eslint --fix --ext ts src"
 	},
 	"dependencies": {
+		"@discordjs/collection": "^0.1.6",
+		"@sapphire/utilities": "3.11.0",
 		"@skyra/env-utilities": "^1.1.0",
 		"tslib": "^2.5.0"
 	},
 	"devDependencies": {
-		"typescript": "^4.9.5"
+		"@vitest/coverage-c8": "^0.29.7",
+		"typescript": "^4.9.5",
+		"vitest": "^0.29.7"
 	}
 }

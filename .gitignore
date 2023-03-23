@@ -11,6 +11,7 @@ node_modules/
 # Output directories
 dist/
 dist-tsc/
+coverage/
 
 # Ignore heapsnapshot and log files
 *.heapsnapshot
