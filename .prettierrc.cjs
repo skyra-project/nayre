@@ -10,7 +10,7 @@ module.exports = {
 			}
 		},
 		{
-			files: ['README.md', 'apps/**/*.md'],
+			files: ['README.md', 'apps/**/*.md', 'packages/**/*.md'],
 			options: {
 				tabWidth: 2,
 				useTabs: false,

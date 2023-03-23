@@ -83,7 +83,7 @@ CREATE TABLE "planet" (
     "vehicle_cargo_ship" INTEGER NOT NULL DEFAULT 0,
     "vehicle_heavy_cargo_ship" INTEGER NOT NULL DEFAULT 0,
     "vehicle_interceptor_jet" INTEGER NOT NULL DEFAULT 0,
-    "vehicle_hiivii" INTEGER NOT NULL DEFAULT 0,
+    "vehicle_hivii" INTEGER NOT NULL DEFAULT 0,
     "vehicle_espionage_probe" INTEGER NOT NULL DEFAULT 0,
     "vehicle_fighter" INTEGER NOT NULL DEFAULT 0,
     "vehicle_advanced_fighter" INTEGER NOT NULL DEFAULT 0,

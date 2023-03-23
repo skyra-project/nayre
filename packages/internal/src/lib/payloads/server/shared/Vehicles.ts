@@ -2,7 +2,7 @@ export interface Vehicles {
 	cargoShip: number;
 	heavyCargoShip: number;
 	interceptorJet: number;
-	hiivii: number;
+	hivii: number;
 	espionageProbe: number;
 	fighter: number;
 	advancedFighter: number;
@@ -22,7 +22,7 @@ export function readVehicles(buffer: Buffer, offset: number): Vehicles {
 		cargoShip: buffer.readUInt32LE(offset),
 		heavyCargoShip: buffer.readUInt32LE(offset + 4),
 		interceptorJet: buffer.readUInt32LE(offset + 8),
-		hiivii: buffer.readUInt32LE(offset + 12),
+		hivii: buffer.readUInt32LE(offset + 12),
 		espionageProbe: buffer.readUInt32LE(offset + 16),
 		fighter: buffer.readUInt32LE(offset + 20),
 		advancedFighter: buffer.readUInt32LE(offset + 24),
@@ -40,7 +40,7 @@ export function writeVehicles(data: Vehicles, buffer: Buffer, offset: number) {
 	buffer.writeUInt32LE(data.cargoShip, offset);
 	buffer.writeUInt32LE(data.heavyCargoShip, offset + 4);
 	buffer.writeUInt32LE(data.interceptorJet, offset + 8);
-	buffer.writeUInt32LE(data.hiivii, offset + 12);
+	buffer.writeUInt32LE(data.hivii, offset + 12);
 	buffer.writeUInt32LE(data.espionageProbe, offset + 16);
 	buffer.writeUInt32LE(data.fighter, offset + 20);
 	buffer.writeUInt32LE(data.advancedFighter, offset + 24);

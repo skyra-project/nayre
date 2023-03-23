@@ -255,7 +255,7 @@ model Planet {
   /// **Retrofits**:
   /// - Energy             6   Single → Shared (+50% shields)
   /// - Shield             6   Single → Dual   (+50% shields)
-  vehicleHiivii            Int @default(0) @map("vehicle_hiivii")
+  vehicleHivii             Int @default(0) @map("vehicle_hivii")
   /// Espionage Probe, has very high speed and is designed to spy other planets.
   ///
   /// **Requirements**:

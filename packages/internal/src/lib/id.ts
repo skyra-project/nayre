@@ -56,7 +56,7 @@ export enum Vehicle {
 	CargoShip = 150,
 	HeavyCargoShip,
 	InterceptorJet,
-	Hiivii,
+	Hivii,
 	EspionageProbe,
 	Fighter,
 	AdvancedFighter,
@@ -71,4 +71,22 @@ export enum Vehicle {
 
 export function isVehicle(id: number): id is Vehicle {
 	return id >= Vehicle.CargoShip && id <= Vehicle.BallistaDestroyer;
+}
+
+export enum Retrofit {
+	IonDriveUpgrade = 200,
+	/** Upgrade over Ballistic Weapon, +30% attack */
+	RailgunWeaponUpgrade = 210,
+	/** Upgrade over Laser Weapon, +30% attack */
+	VanguardWeaponUpgrade,
+	/** Upgrade over Vanguard Weapon */
+	IonWeaponUpgrade,
+	/** Hivii exclusive, +50% shields */
+	SharedShield = 220,
+	/** Hivii exclusive, +50% shields */
+	DualShield
+}
+
+export function isRetrofit(id: number): id is Retrofit {
+	return id >= Retrofit.IonDriveUpgrade && id <= Retrofit.DualShield;
 }
