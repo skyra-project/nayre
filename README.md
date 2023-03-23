@@ -1,3 +1,3 @@
 # nayre
 
-Your favourite Discord bot for RPG, part of ArchId Network.
+Your favourite Discord bot for RTS, part of ArchId Network.
