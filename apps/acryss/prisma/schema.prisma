@@ -7,6 +7,492 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// Maps a Discord User.
 model User {
-  id                   BigInt       @id
+  /// The Discord ID.
+  id        BigInt   @id
+  /// The universes the user plays on.
+  universes Player[]
+
+  @@map("user")
+}
+
+/// Maps a Discord Guild or the Multiverse.
+model Universe {
+  /// The Guild ID. Or Multiverse if it's 0.
+  id BigInt @id
+
+  /// The name of the universe, defaults to the guild's name.
+  name    String
+  /// The amount of systems this universe has, each with 12 planets.
+  systems Int
+
+  /// The players the universe has.
+  players Player[]
+  /// The colonized planets the universe has.
+  planets Planet[]
+
+  @@map("universe")
+}
+
+/// Represents an User's account in an Universe.
+model Player {
+  /// Generated ID, see {@link userId}.
+  id         BigInt   @id @default(autoincrement())
+  /// The universe this account is for.
+  universe   Universe @relation(fields: [universeId], references: [id])
+  /// The ID of the universe this account is for.
+  universeId BigInt   @map("universe")
+  /// The Discord user who owns this account.
+  user       User     @relation(fields: [userId], references: [id])
+  /// The ID of the user who owns this account.
+  userId     BigInt   @map("user")
+
+  /// The amount of points the user has.
+  points BigInt @default(0)
+
+  /// Increases the energy generation.
+  researchEnergy          Int @default(0) @map("research_energy") @db.SmallInt
+  /// Increases effectiveness of Quarry per level.
+  ///
+  /// **Requirements**:
+  /// - Energy            2
+  researchElectromagnet   Int @default(0) @map("research_electromagnet") @db.SmallInt
+  /// Increases the effectiveness and lowers the cost of laser-based technologies.
+  ///
+  /// **Requirements**:
+  /// - Energy            4
+  researchLaser           Int @default(0) @map("research_laser") @db.SmallInt
+  /// Increases the effectiveness of ion-based technologies.
+  ///
+  /// **Requirements**:
+  /// - Energy            6
+  researchIon             Int @default(0) @map("research_ion") @db.SmallInt
+  /// Increases the effectiveness of plasma-based technologies.
+  ///
+  /// **Requirements**:
+  /// - Energy            8
+  researchPlasma          Int @default(0) @map("research_plasma") @db.SmallInt
+  /// Increases the efficiency and speed of the combustion drive by 10% per level.
+  ///
+  /// **Requirements**:
+  /// - Energy            2
+  researchCombustionDrive Int @default(0) @map("research_combustion_drive") @db.SmallInt
+  /// Increases the efficiency and speed of the ion drive by 10% per level.
+  ///
+  /// **Requirements**:
+  /// - Energy            6
+  /// - Ion               2
+  researchIonDrive        Int @default(0) @map("research_ion_drive") @db.SmallInt
+  /// Increases the efficiency and speed of the impulse drive by 10% per level.
+  ///
+  /// **Requirements**:
+  /// - Energy            6
+  researchImpulseDrive    Int @default(0) @map("research_impulse_drive") @db.SmallInt
+  /// Increases the efficiency and speed of the warp drive by 10% per level.
+  ///
+  /// **Requirements**:
+  /// - Energy            10
+  researchWarpDrive       Int @default(0) @map("research_warp_drive") @db.SmallInt
+  /// Increases the efficiency and speed of the impulse drive by 10% per level.
+  ///
+  /// **Requirements**:
+  /// - Energy            2
+  /// - Combustion Drive  1
+  researchEspionage       Int @default(0) @map("research_espionage") @db.SmallInt
+  /// Accelerates research speed.
+  researchComputing       Int @default(0) @map("research_computing") @db.SmallInt
+  /// Increases by 10% per level the total damage from ships and defences.
+  researchAttack          Int @default(0) @map("research_attack") @db.SmallInt
+  /// Increases by 10% per level the total shields from ships and defences.
+  researchShield          Int @default(0) @map("research_shield") @db.SmallInt
+  /// Increases by 10% per level the total hull from ships and defences.
+  researchHull            Int @default(0) @map("research_hull") @db.SmallInt
+
+  /// The planets the Player owns.
+  planets             Planet[]
+  /// The tasks the Player is running.
+  tasks               PlayerTask[]
+  vehiclePayloadTasks VehicleTaskPayload[]
+  vehicleCargoTasks   VehicleTaskCargo[]
+
+  @@map("player")
+}
+
+/// Represents a planet colonized by a player.
+model Planet {
+  id BigInt @id @default(autoincrement())
+
+  /// The ID of the planet, this serves to determine where the planet is at in the universe, it's composed by the system * 12 + planet index (0-11).
+  planetId   Int      @map("planet")
+  /// The universe this planet is from.
+  universe   Universe @relation(fields: [universeId], references: [id])
+  /// The ID of the universe this planet is from.
+  universeId BigInt   @map("universe")
+  /// The user who owns this planet.
+  owner      Player   @relation(fields: [ownerId], references: [id])
+  /// The ID of the user who owns this planet.
+  ownerId    BigInt   @map("owner")
+
+  /// The user-given name for the planet.
+  name        String
+  /// The time the planet was colonized at.
+  colonizedAt DateTime @default(now()) @map("colonized_at")
+
+  // Resources
+  /// The amount of Metal the planet has.
+  resourceMetal          Float    @default(0) @map("resource_metal") @db.DoublePrecision
+  /// The amount of Crystal the planet has.
+  resourceCrystal        Float    @default(0) @map("resource_crystal") @db.DoublePrecision
+  /// The amount of Hydrogen the planet has.
+  resourceHydrogen       Float    @default(0) @map("resource_hydrogen") @db.DoublePrecision
+  /// The amount of Energy the planet has.
+  resourceEnergy         Float    @default(0) @map("resource_energy") @db.DoublePrecision
+  /// The amount of Electron Plasma the planet has.
+  resourceElectronPlasma Float    @default(0) @map("resource_electron_plasma") @db.DoublePrecision
+  /// The last time the resources were updated.
+  resourceLastUpdated    DateTime @default(now()) @map("resource_last_updated")
+
+  // Resource Buildings
+  /// Extracts Metal resources.
+  buildingQuarry              Int @default(0) @map("building_quarry") @db.SmallInt
+  /// Extracts Crystal resources.
+  buildingMine                Int @default(0) @map("building_mine") @db.SmallInt
+  /// Extracts Hydrogen resources.
+  buildingHydrogenGenerator   Int @default(0) @map("building_hydrogen_generator") @db.SmallInt
+  /// Generates a fixed amount of Energy.
+  buildingGeothermalGenerator Int @default(0) @map("building_geothermal_generator") @db.SmallInt
+  /// Consumes Hydrogen, generates large amounts of Energy.
+  buildingFusionReactor       Int @default(0) @map("building_fusion_reactor") @db.SmallInt
+  /// Consumes large amounts of Hydrogen, generates EP.
+  buildingCondensationCentre  Int @default(0) @map("building_condensation_centre") @db.SmallInt
+
+  // Facilities
+  /// Accelerates building speed.
+  facilityRobotFactory    Int @default(0) @map("facility_robot_factory") @db.SmallInt
+  /// Greatly accelerates building speed.
+  facilityAdvancedFactory Int @default(0) @map("facility_advanced_factory") @db.SmallInt
+  /// Allows atmosphere-capable ships to be built, as well as planet defences.
+  facilityShipyard        Int @default(0) @map("facility_shipyard") @db.SmallInt
+  /// Allows space-exclusive ships to be built, as well as orbital defences.
+  facilitySpaceShipyard   Int @default(0) @map("facility_space_shipyard") @db.SmallInt
+  /// Allows research to be done.
+  facilityResearchCentre  Int @default(0) @map("facility_research_centre") @db.SmallInt
+
+  // Defenses
+  /// The first available defence unit, and the cheapest. They're cannon fodder units and suffer from very high rapid-fire against them.
+  defenseRailgunTurret   Int @default(0) @map("defense_railgun_turret")
+  /// Cannon fodder unit, more expensive than the Railgun Turret, but better against Cruisers.
+  ///
+  /// **Requirements**:
+  /// - Laser            2
+  defenseLaserTurret     Int @default(0) @map("defense_laser_turret")
+  /// The more expensive and powerful option from Laser Turret, and able to one-shot Fighters.
+  ///
+  /// **Requirements**:
+  /// - Laser            6
+  defenseVanguardTurret  Int @default(0) @map("defense_vanguard_turret")
+  /// Relatively affordable turret with very high shields.
+  ///
+  /// **Requirements**:
+  /// - Shield           2
+  /// - Ion              4
+  defenseIonTurret       Int @default(0) @map("defense_ion_turret")
+  /// The second strongest defensive unit, they are massive kinetic weapons able to take down Cruisers alone, and Battleships too with relative ease.
+  ///
+  /// **Requirements**:
+  /// - Attack           6
+  /// - Electromagnet    6
+  defenseKineticCannon   Int @default(0) @map("defense_kinetic_cannon")
+  /// The most powerful and expensive turret in the game.
+  ///
+  /// **Requirements**:
+  /// - Attack           6
+  /// - Plasma           6
+  defenseNaeriaTurret    Int @default(0) @map("defense_naeria_turret")
+  /// A basic shield layer, it can stop Espionage Probes and Cargo ships from successfully penetrating the planet's defences.
+  ///
+  /// **Requirements**:
+  /// - Shield           3
+  defenseShieldDome      Int @default(0) @map("defense_shield_dome")
+  /// Much stronger than the Shield Dome, offers several times the shields and stops Fighters in any amount from doing any harm to the planet.
+  ///
+  /// **Requirements**:
+  /// - Shield           6
+  defenseHeavyShieldDome Int @default(0) @map("defense_heavy_shield_dome")
+
+  // Ships
+  /// Cargo Ship, has high speed and high cargo capacity.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   2
+  ///
+  /// **Retrofits**:
+  /// - Ion Drive          6   Combustion Drive → Ion Drive
+  vehicleCargoShip         Int @default(0) @map("vehicle_cargo_ship")
+  /// Heavy Cargo Ship, slightly slower than the Cargo Ship but has much higher cargo capacity.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   4
+  ///
+  /// **Retrofits**:
+  /// - Ion Drive          8   Combustion Drive → Ion Drive
+  vehicleHeavyCargoShip    Int @default(0) @map("vehicle_heavy_cargo_ship")
+  /// Designed to intercept Fighters while being more durable than the Railgun Turret, cannot travel to other planets.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   2
+  ///
+  /// **Retrofits**:
+  /// - Electromagnet      10  Ballistic → Weapon
+  vehicleInterceptorJet    Int @default(0) @map("vehicle_interceptor_jet")
+  /// High-capacity high-end shields.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   2
+  /// - Space Shipyard
+  ///
+  /// **Retrofits**:
+  /// - Energy             6   Single → Shared (+50% shields)
+  /// - Shield             6   Single → Dual   (+50% shields)
+  vehicleHivii             Int @default(0) @map("vehicle_hivii")
+  /// Espionage Probe, has very high speed and is designed to spy other planets.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   1
+  ///
+  /// **Retrofits**:
+  /// - Ion Drive          4   Combustion Drive → Ion Drive
+  vehicleEspionageProbe    Int @default(0) @map("vehicle_espionage_probe")
+  /// The cheapest and least powerful interplanetary ship.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   3
+  /// - Laser              2
+  vehicleFighter           Int @default(0) @map("vehicle_fighter")
+  /// A heavier version of the Fighter, designed to fight against enemy Interceptor Jets and Fighters.
+  ///
+  /// **Requirements**:
+  /// - Combustion Drive   6
+  /// - Laser              4
+  ///
+  /// **Retrofits**:
+  /// - Laser              6   Basic → Vanguard
+  vehicleAdvancedFighter   Int @default(0) @map("vehicle_advanced_fighter")
+  /// An affordable medium-sized ship with high capabilities against Interceptor Jets, Fighters, and Advanced Fighters.
+  ///
+  /// **Requirements**:
+  /// - Ion Drive          4
+  /// - Laser              6
+  ///
+  /// **Retrofits**:
+  /// - Laser              8   Basic → Vanguard
+  vehicleCruiser           Int @default(0) @map("vehicle_cruiser")
+  /// A medium-sized ship with high firing rate against Interceptor Jets, Fighters, Advanced Fighters, and Cruisers.
+  ///
+  /// **Requirements**:
+  /// - Ion Drive          6
+  /// - Laser              8
+  ///
+  /// **Retrofits**:
+  /// - Laser              10  Basic → Vanguard
+  /// - Ion                6   Laser → Ion
+  vehicleBattleship        Int @default(0) @map("vehicle_battleship")
+  /// A large ship designed to destroy fodder but is weak against planetary defenses.
+  ///
+  /// **Requirements**:
+  /// - Impulse Drive      2
+  /// - Ion                4
+  /// - Attack             2
+  vehicleBattlecruiser     Int @default(0) @map("vehicle_battlecruiser")
+  /// A large ship designed to destroy a planet's defenses, weak against most large ships.
+  ///
+  /// **Requirements**:
+  /// - Impulse Drive      4
+  /// - Electromagnet      10
+  /// - Attack             4
+  vehicleBomber            Int @default(0) @map("vehicle_bomber")
+  /// An upgraded version of the Bomber with less damage but higher capability against other ships.
+  ///
+  /// **Requirements**:
+  /// - Warp Drive         2
+  /// - Ion                8
+  /// - Attack             6
+  /// - Shield             4
+  vehicleDestroyer         Int @default(0) @map("vehicle_destroyer")
+  /// A very expensive upgraded version of the Bomber with overwhelming strength.
+  ///
+  /// **Requirements**:
+  /// - Space Shipyard     8
+  /// - Warp Drive         6
+  /// - Plasma             6
+  /// - Attack             8
+  /// - Shield             6
+  vehicleBallistaBomber    Int @default(0) @map("vehicle_ballista_bomber")
+  /// A very expensive upgraded version of the Destroyer with overwhelming strength.
+  ///
+  /// **Requirements**:
+  /// - Space Shipyard     8
+  /// - Warp Drive         6
+  /// - Plasma             8
+  /// - Attack             10
+  /// - Shield             8
+  vehicleBallistaDestroyer Int @default(0) @map("vehicle_ballista_destroyer")
+
+  /// The tasks pending on this planet.
+  tasks PlanetTask[]
+
+  /// The vehicle movements from this planet.
+  movementsFrom VehicleTask[] @relation(name: "vehicle_task_planet_from_planet_id")
+  /// The vehicle movements from this planet.
+  movementsTo   VehicleTask[] @relation(name: "vehicle_task_planet_to_planet_id")
+
+  @@unique([planetId, universeId])
+  @@map("planet")
+}
+
+/// The type of a {@link PlanetTask}.
+enum PlayerTaskType {
+  Research @map("research")
+
+  @@map("player_task_type")
+}
+
+/// A task in a player.
+model PlayerTask {
+  id BigInt @id @default(autoincrement())
+
+  /// The planet this task is for.
+  player   Player @relation(fields: [playerId], references: [id])
+  /// The ID of the planet this task is for.
+  playerId BigInt @map("player")
+
+  /// The time at which the task started.
+  start DateTime @default(now())
+  /// The time at which the task ends.
+  end   DateTime
+
+  /// The type of the task.
+  type      PlayerTaskType
+  /// The ID of the task that changes.
+  itemId    Int            @map("item") @db.SmallInt
+  /// If {@link PlayerTaskType.Research}, the level.
+  itemCount Int            @map("item_count")
+
+  @@map("player_task")
+}
+
+/// The type of a {@link VehicleTask}.
+enum VehicleTaskType {
+  Attack    @map("building")
+  Settle    @map("settle")
+  Roundtrip @map("roundtrip")
+  Spy       @map("spy")
+
+  @@map("vehicle_task_type")
+}
+
+/// A task in a player.
+model VehicleTask {
+  id BigInt @id @default(autoincrement())
+
+  /// The planet this task is for.
+  planetFrom   Planet @relation(fields: [planetFromId], references: [id], name: "vehicle_task_planet_from_planet_id")
+  /// The ID of the planet this task is for.
+  planetFromId BigInt @map("planet_from")
+  /// The planet this task is for.
+  planetTo     Planet @relation(fields: [planetToId], references: [id], name: "vehicle_task_planet_to_planet_id")
+  /// The ID of the planet this task is for.
+  planetToId   BigInt @map("planet_to")
+
+  /// The time at which the task started.
+  start DateTime @default(now())
+  /// The time at which the task ends.
+  end   DateTime
+
+  /// The type of the task.
+  type     VehicleTaskType
+  payloads VehicleTaskPayload[]
+  cargo    VehicleTaskCargo[]
+
+  @@map("vehicle_task")
+}
+
+/// A payload in a {@link VehicleTask}, primarily how many ships did a player send.
+model VehicleTaskPayload {
+  id     BigInt       @id @default(autoincrement())
+  /// The task this is entry for.
+  task   VehicleTask? @relation(fields: [taskId], references: [id])
+  /// The ID of the task this entry is for.
+  taskId BigInt?      @map("task")
+
+  /// The owner of the payload.
+  player    Player @relation(fields: [playerId], references: [id])
+  /// The ID of the owner of the payload.
+  playerId  BigInt @map("player")
+  /// The ID of the vehicle.
+  vehicleId Int    @map("vehicle") @db.SmallInt
+  /// The amount of the vehicle that is in this payload.
+  count     Int
+
+  @@map("vehicle_task_payload")
+}
+
+/// The amount of cargo per player in a {@link VehicleTask}.
+model VehicleTaskCargo {
+  id     BigInt       @id @default(autoincrement())
+  /// The task this is entry for.
+  task   VehicleTask? @relation(fields: [taskId], references: [id])
+  /// The ID of the task this entry is for.
+  taskId BigInt?      @map("task")
+
+  /// The owner of the payload.
+  player   Player @relation(fields: [playerId], references: [id])
+  /// The ID of the owner of the payload.
+  playerId BigInt @map("player")
+
+  // Resources
+  /// The amount of Metal that is being transferred.
+  resourceMetal          Float @map("resource_metal") @db.DoublePrecision
+  /// The amount of Crystal that is being transferred.
+  resourceCrystal        Float @map("resource_crystal") @db.DoublePrecision
+  /// The amount of Hydrogen that is being transferred.
+  resourceHydrogen       Float @map("resource_hydrogen") @db.DoublePrecision
+  /// The amount of Electron Plasma that is being transferred.
+  resourceElectronPlasma Float @map("resource_electron_plasma") @db.DoublePrecision
+
+  @@map("vehicle_task_cargo")
+}
+
+/// The type of a {@link PlanetTask}.
+enum PlanetTaskType {
+  Building      @map("building")
+  Shipyard      @map("shipyard")
+  SpaceShipyard @map("space_shipyard")
+
+  @@map("planet_task_type")
+}
+
+/// A task in a planet.
+model PlanetTask {
+  id BigInt @id @default(autoincrement())
+
+  /// The planet this task is for.
+  planet   Planet @relation(fields: [planetId], references: [id])
+  /// The ID of the planet this task is for.
+  planetId BigInt @map("planet")
+
+  /// The time at which the task started.
+  start DateTime @default(now())
+  /// The time at which the task ends.
+  end   DateTime
+
+  /// The type of the task.
+  type      PlanetTaskType
+  /// The ID of the item.
+  itemId    Int            @map("item") @db.SmallInt
+  /// If {@link PlanetTaskType.Building}, the level, otherwise the amount of items to build.
+  itemCount Int            @map("item_count")
+
+  @@map("planet_task")
 }
