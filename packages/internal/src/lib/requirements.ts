@@ -1,4 +1,4 @@
-import Collection from '@discordjs/collection';
+import { Collection } from '@discordjs/collection';
 import { isNullish, isNullishOrEmpty } from '@sapphire/utilities';
 import { Building, Defense, Research, Retrofit, Vehicle } from './id.js';
 
