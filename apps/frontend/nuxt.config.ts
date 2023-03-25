@@ -96,7 +96,8 @@ export default defineNuxtConfig({
 		}
 	},
 	typescript: {
-		shim: false
+		shim: false,
+		typeCheck: 'build'
 	},
 	app: {
 		head: {
