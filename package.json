@@ -21,7 +21,6 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@actions/core": "^1.10.0",
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@prettier/plugin-xml": "^2.2.0",
