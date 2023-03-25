@@ -52,7 +52,7 @@ jobs:
       - name: Build and push Acryss Docker image
         uses: docker/build-push-action@v3.2.0
         with:
-          push: true
+          push: ${{ github.event_name == 'push' }}
           context: .
           target: acryss-runner
           tags: ghcr.io/skyra-project/acryss:${{ needs.ExtractDockerTag.outputs.tag }}
@@ -75,7 +75,7 @@ jobs:
       - name: Build and push Nayre Docker image
         uses: docker/build-push-action@v3.2.0
         with:
-          push: true
+          push: ${{ github.event_name == 'push' }}
           context: .
           target: nayre-runner
           tags: ghcr.io/skyra-project/nayre:${{ needs.ExtractDockerTag.outputs.tag }}
@@ -98,7 +98,7 @@ jobs:
       - name: Build and push Frontend Docker image
         uses: docker/build-push-action@v3.2.0
         with:
-          push: true
+          push: ${{ github.event_name == 'push' }}
           context: .
           target: frontend-runner
           tags: ghcr.io/skyra-project/nayre-web:${{ needs.ExtractDockerTag.outputs.tag }}
