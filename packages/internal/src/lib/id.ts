@@ -74,6 +74,7 @@ export function isVehicle(id: number): id is Vehicle {
 }
 
 export enum Retrofit {
+	/** Upgrade over Combustion Engine, -10% Hydrogen +20% speed */
 	IonDriveUpgrade = 200,
 	/** Upgrade over Ballistic Weapon, +30% attack */
 	RailgunWeaponUpgrade = 210,
