@@ -1,12 +1,10 @@
 {
 	"recommendations": [
-		"Vue.vscode-typescript-vue-plugin",
 		"bradlc.vscode-tailwindcss",
-		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
-		"mikestead.dotenv"
-	],
-	"unwantedRecommendations": [
-		"Vue.volar"
+		"esbenp.prettier-vscode",
+		"mikestead.dotenv",
+		"Vue.volar",
+		"Vue.vscode-typescript-vue-plugin"
 	]
 }
