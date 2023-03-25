@@ -27,3 +27,6 @@ package-lock.json
 .env.production.local
 /.env
 /apps/*/.env
+
+# Ignore Turbo caching
+.turbo
