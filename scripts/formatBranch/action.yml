@@ -1,8 +1,8 @@
 name: 'Format Branch'
 description: 'Formats a git branch to make it a valid Docker tag'
 inputs:
-  branch:
-    description: 'The github branch to format'
+  context:
+    description: 'The github context to extract data from'
     required: true
 outputs:
   tag:

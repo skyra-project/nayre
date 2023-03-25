@@ -1,14 +1,14 @@
-import { getInput, setOutput } from '@actions/core';
+import { getInput, setOutput, debug } from '@actions/core';
 
 /**
  * Formats a Git branch to a valid Docker tag
- * @param {string} branch The branch to format
+ * @param {*} parsedContext The branch to format
  * @returns {string} The formatted branch
  */
-function formatBranch(branch) {
-	if (branch === 'main') return 'latest';
+function formatBranch(parsedContext) {
+	if (parsedContext.ref === 'refs/heads/main' && parsedContext.event_name === 'push') return 'latest';
 
-	let formattedBranch = branch.replace(/[^a-zA-Z0-9-._]/g, '_').toLowerCase();
+	let formattedBranch = parsedContext.head_ref.replace(/[^a-zA-Z0-9-._]/g, '_').toLowerCase();
 
 	while (formattedBranch.startsWith('-') || formattedBranch.startsWith('.')) {
 		formattedBranch = formattedBranch.substring(1, formattedBranch.length);
@@ -21,7 +21,9 @@ function formatBranch(branch) {
 	return formattedBranch;
 }
 
-const branch = getInput('branch', { required: true });
-const parsed = formatBranch(branch);
+const contextString = getInput('context', { required: true });
+const contextJson = JSON.parse(contextString);
 
-setOutput('tag', parsed.tag);
+const parsed = formatBranch(contextJson);
+
+setOutput('tag', parsed);
