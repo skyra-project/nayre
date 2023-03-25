@@ -30,8 +30,13 @@ COPY --chown=node:node tsconfig.base.json .
 COPY --chown=node:node apps/acryss/package.json apps/acryss/package.json
 COPY --chown=node:node apps/frontend/package.json apps/frontend/package.json
 COPY --chown=node:node apps/nayre/package.json apps/nayre/package.json
+COPY --chown=node:node packages/internal/package.json packages/internal/package.json
 
 RUN yarn install --immutable
+
+COPY --chown=node:node packages/internal/src/ packages/internal/src/
+
+RUN yarn workspace @skyra/internal run build
 
 ## Base Runner
 
@@ -60,6 +65,8 @@ RUN yarn workspace @skyra/acryss run build
 
 FROM base-runner as acryss-runner
 
+COPY --chown=node:node --from=base-builder /usr/src/app/packages/internal/package.json /usr/src/app/packages/internal/package.json
+
 COPY --chown=node:node --from=base-builder /usr/src/app/apps/acryss/package.json /usr/src/app/apps/acryss/package.json
 COPY --chown=node:node --from=acryss-builder /usr/src/app/apps/acryss/dist apps/acryss/dist
 COPY --chown=node:node --from=acryss-builder /usr/src/app/apps/acryss/src/.env apps/acryss/src/.env
@@ -84,7 +91,7 @@ FROM base-builder as frontend-builder
 
 COPY --chown=node:node apps/frontend/assets/ apps/frontend/assets/
 COPY --chown=node:node apps/frontend/components/ apps/frontend/components/
-COPY --chown=node:node apps/frontend/layout/ apps/frontend/layout/
+COPY --chown=node:node apps/frontend/layouts/ apps/frontend/layouts/
 COPY --chown=node:node apps/frontend/pages/ apps/frontend/pages/
 COPY --chown=node:node apps/frontend/public/ apps/frontend/public/
 COPY --chown=node:node apps/frontend/server/ apps/frontend/server/
@@ -123,6 +130,8 @@ RUN yarn workspace @skyra/nayre run build
 ## Runner
 
 FROM base-runner as nayre-runner
+
+COPY --chown=node:node --from=base-builder /usr/src/app/packages/internal/package.json /usr/src/app/packages/internal/package.json
 
 COPY --chown=node:node --from=base-builder /usr/src/app/apps/nayre/package.json /usr/src/app/apps/nayre/package.json
 COPY --chown=node:node --from=nayre-builder /usr/src/app/apps/nayre/dist apps/nayre/dist
