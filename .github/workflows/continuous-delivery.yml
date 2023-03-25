@@ -2,6 +2,7 @@ name: Continuous Delivery
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
@@ -12,9 +13,31 @@ on:
       - 'package.json'
 
 jobs:
+  ExtractDockerTag:
+    name: Extract Docker Tag
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.extract-tag.outputs.tag }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Extract Docker Tag
+        id: extract-tag
+        uses: ./scripts/formatBranch
+        with:
+          branch: ${{ github.ref_name }}
+
   PublishAcryss:
     name: Publish Acryss image to container registries
     runs-on: ubuntu-latest
+    needs: ExtractDockerTag
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -32,11 +55,12 @@ jobs:
           push: true
           context: .
           target: acryss-runner
-          tags: ghcr.io/skyra-project/acryss:latest
+          tags: ghcr.io/skyra-project/acryss:${{ needs.ExtractDockerTag.outputs.tag }}
 
   PublishNayre:
     name: Publish Nayre image to container registries
     runs-on: ubuntu-latest
+    needs: ExtractDockerTag
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -54,11 +78,12 @@ jobs:
           push: true
           context: .
           target: nayre-runner
-          tags: ghcr.io/skyra-project/nayre:latest
+          tags: ghcr.io/skyra-project/nayre:${{ needs.ExtractDockerTag.outputs.tag }}
 
   PublishFrontend:
     name: Publish Frontend image to container registries
     runs-on: ubuntu-latest
+    needs: ExtractDockerTag
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -76,4 +101,4 @@ jobs:
           push: true
           context: .
           target: frontend-runner
-          tags: ghcr.io/skyra-project/nayre-web:latest
+          tags: ghcr.io/skyra-project/nayre-web:${{ needs.ExtractDockerTag.outputs.tag }}

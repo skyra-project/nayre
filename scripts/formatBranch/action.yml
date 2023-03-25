@@ -1,0 +1,12 @@
+name: 'Format Branch'
+description: 'Formats a git branch to make it a valid Docker tag'
+inputs:
+  branch:
+    description: 'The github branch to format'
+    required: true
+outputs:
+  tag:
+    description: 'The valid docker tag that was extracted from this ref'
+runs:
+  using: node16
+  main: index.mjs
