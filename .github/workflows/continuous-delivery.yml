@@ -31,6 +31,7 @@ jobs:
   PublishAcryss:
     name: Publish Acryss image to container registries
     runs-on: ubuntu-latest
+    needs: BuildDockerBase
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -55,6 +56,7 @@ jobs:
   PublishNayre:
     name: Publish Nayre image to container registries
     runs-on: ubuntu-latest
+    needs: BuildDockerBase
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -79,6 +81,7 @@ jobs:
   PublishFrontend:
     name: Publish Frontend image to container registries
     runs-on: ubuntu-latest
+    needs: BuildDockerBase
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
