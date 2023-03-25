@@ -13,6 +13,21 @@ on:
       - 'package.json'
 
 jobs:
+  BuildDockerBase:
+    name: Build base image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2.2.1
+      - name: Build and push base Docker image
+        uses: docker/build-push-action@v3.2.0
+        with:
+          load: true
+          context: .
+          target: base-runner
+
   PublishAcryss:
     name: Publish Acryss image to container registries
     runs-on: ubuntu-latest
