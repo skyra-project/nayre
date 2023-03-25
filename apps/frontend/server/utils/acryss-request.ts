@@ -1,8 +1,6 @@
-import type { H3Event } from 'h3';
 import { Server } from '@skyra/internal';
 
 const url = new URL(process.env.ACRYSS_API_URL!);
-
 export async function acryssRequest(body: Buffer, userId: string | bigint) {
 	const response = await fetch(url, {
 		body,
