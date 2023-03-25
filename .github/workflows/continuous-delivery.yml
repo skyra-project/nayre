@@ -2,6 +2,7 @@ name: Continuous Delivery
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
@@ -29,10 +30,12 @@ jobs:
       - name: Build and push Acryss Docker image
         uses: docker/build-push-action@v3.2.0
         with:
-          push: true
+          push: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
           context: .
           target: acryss-runner
           tags: ghcr.io/skyra-project/acryss:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   PublishNayre:
     name: Publish Nayre image to container registries
@@ -51,10 +54,12 @@ jobs:
       - name: Build and push Nayre Docker image
         uses: docker/build-push-action@v3.2.0
         with:
-          push: true
+          push: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
           context: .
           target: nayre-runner
           tags: ghcr.io/skyra-project/nayre:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   PublishFrontend:
     name: Publish Frontend image to container registries
@@ -73,7 +78,9 @@ jobs:
       - name: Build and push Frontend Docker image
         uses: docker/build-push-action@v3.2.0
         with:
-          push: true
+          push: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
           context: .
           target: frontend-runner
           tags: ghcr.io/skyra-project/nayre-web:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
