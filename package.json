@@ -9,16 +9,14 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "yarn workspaces foreach -pt run build",
-		"dev": "yarn workspaces foreach -pt run dev",
-		"watch": "yarn workspaces foreach -pt run watch",
+		"build": "turbo run build",
+		"watch": "turbo run watch",
 		"prisma:generate": "yarn workspace @skyra/acryss exec \"prisma generate\"",
-		"start": "yarn workspaces foreach -pt run start",
+		"start": "turbo run start",
 		"clean": "node scripts/clean.mjs",
-		"test": "yarn workspaces foreach -pt run test",
-		"lint": "yarn workspaces foreach -pt run lint",
+		"test": "turbo run test",
+		"lint": "turbo run lint",
 		"format": "prettier --write .",
-		"update": "yarn upgrade-interactive",
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
@@ -41,6 +39,7 @@
 		"prettier": "^2.8.6",
 		"prettier-plugin-tailwindcss": "^0.2.5",
 		"pretty-quick": "^3.1.3",
+		"turbo": "^1.8.5",
 		"typescript": "^4.9.5",
 		"vite": "^4.2.1",
 		"vitest": "^0.29.7"
