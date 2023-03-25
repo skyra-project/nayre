@@ -2926,6 +2926,7 @@ __metadata:
     "@skyra/env-utilities": ^1.1.0
     "@skyra/http-framework": ^0.15.3
     "@skyra/http-framework-i18n": ^0.6.0
+    "@skyra/internal": "workspace:^"
     "@skyra/logger": ^1.0.1
     "@skyra/shared-http-pieces": ^0.6.0
     "@skyra/start-banner": ^1.0.2
