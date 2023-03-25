@@ -15,8 +15,8 @@
 		"prisma:generate": "yarn workspace @skyra/acryss exec \"prisma generate\"",
 		"start": "yarn workspaces foreach -pt run start",
 		"clean": "node scripts/clean.mjs",
-		"test": "yarn workspaces foreach run test",
-		"lint": "yarn workspaces foreach run lint",
+		"test": "yarn workspaces foreach -pt run test",
+		"lint": "yarn workspaces foreach -pt run lint",
 		"format": "prettier --write .",
 		"update": "yarn upgrade-interactive",
 		"postinstall": "husky install .github/husky"

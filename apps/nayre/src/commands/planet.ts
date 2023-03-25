@@ -42,7 +42,7 @@ export class UserCommand extends Command {
 		applyLocalizedBuilder(builder, Root.Get) //
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsPlanet).setAutocomplete(true).setRequired(true))
 	)
-	public async get(interaction: Command.ChatInputInteraction) {
+	public get(interaction: Command.ChatInputInteraction) {
 		void interaction;
 	}
 
@@ -51,12 +51,12 @@ export class UserCommand extends Command {
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsPlanet).setAutocomplete(true).setRequired(true))
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsName))
 	)
-	public async edit(interaction: Command.ChatInputInteraction) {
+	public edit(interaction: Command.ChatInputInteraction) {
 		void interaction;
 	}
 
 	@RegisterSubCommand((builder) => applyLocalizedBuilder(builder, Root.List))
-	public async list(interaction: Command.ChatInputInteraction) {
+	public list(interaction: Command.ChatInputInteraction) {
 		void interaction;
 	}
 }
