@@ -16,7 +16,7 @@
 		"@skyra/internal": "workspace:^",
 		"@tailwindcss/typography": "^0.5.9",
 		"@vite-pwa/nuxt": "^0.0.7",
-		"next-auth": "^4.21.1",
+		"next-auth": "^4.22.0",
 		"nuxt": "^3.3.3",
 		"sitemap": "^7.1.1",
 		"typescript": "^4.9.5",
