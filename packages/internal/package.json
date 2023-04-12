@@ -17,14 +17,14 @@
 		"lint": "eslint --fix --ext ts src"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^1.4.0",
-		"@sapphire/utilities": "3.11.0",
-		"@skyra/env-utilities": "^1.1.0",
+		"@discordjs/collection": "^1.5.0",
+		"@sapphire/utilities": "3.11.1",
+		"@skyra/env-utilities": "^1.2.0",
 		"tslib": "^2.5.0"
 	},
 	"devDependencies": {
-		"@vitest/coverage-c8": "^0.29.8",
-		"typescript": "^4.9.5",
-		"vitest": "^0.29.8"
+		"@vitest/coverage-c8": "^0.30.1",
+		"typescript": "^5.0.4",
+		"vitest": "^0.30.1"
 	}
 }
