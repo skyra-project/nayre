@@ -20,8 +20,8 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.5.1",
-		"@commitlint/config-conventional": "^17.4.4",
+		"@commitlint/cli": "^17.6.1",
+		"@commitlint/config-conventional": "^17.6.1",
 		"@prettier/plugin-xml": "^2.2.0",
 		"@sapphire/eslint-config": "^4.4.1",
 		"@sapphire/prettier-config": "^1.4.5",
@@ -66,6 +66,6 @@
 	},
 	"packageManager": "yarn@3.5.0",
 	"volta": {
-		"node": "18.15.0"
+		"node": "18.16.0"
 	}
 }

@@ -11,13 +11,13 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@nuxtjs/tailwindcss": "^6.6.5",
-		"@sidebase/nuxt-auth": "^0.5.0-rc.0",
+		"@nuxtjs/tailwindcss": "^6.6.6",
+		"@sidebase/nuxt-auth": "^0.5.0",
 		"@skyra/internal": "workspace:^",
 		"@tailwindcss/typography": "^0.5.9",
 		"@vite-pwa/nuxt": "^0.0.7",
 		"next-auth": "^4.22.0",
-		"nuxt": "^3.4.0",
+		"nuxt": "^3.4.1",
 		"sitemap": "^7.1.1",
 		"typescript": "^5.0.4",
 		"vite-plugin-pwa": "^0.14.7",
