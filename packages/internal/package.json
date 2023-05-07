@@ -17,7 +17,7 @@
 		"lint": "eslint --fix --ext ts src"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^1.5.0",
+		"@discordjs/collection": "^1.5.1",
 		"@sapphire/utilities": "3.11.2",
 		"@skyra/env-utilities": "^1.2.0",
 		"tslib": "^2.5.0"
