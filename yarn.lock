@@ -2230,13 +2230,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prettier/plugin-xml@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "@prettier/plugin-xml@npm:2.2.0"
+"@prettier/plugin-xml@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@prettier/plugin-xml@npm:3.1.0"
   dependencies:
     "@xml-tools/parser": ^1.0.11
-    prettier: ">=2.4.0"
-  checksum: 480fb67fe711463ab6b5678ce996486873b4d6440c31338af3f8dd5054c7ae9539dd81621637c85eed904727cfe17b7213e717d451df2fee56c8c50251f6bb69
+    prettier: ">=3.0.0"
+  checksum: 094723a8ef7f557473a503c9592f6d2d466adc53e4a1f1dacdf63be46353893686fc92ae31158566e54ce3c949fe719ae05b5e25959eb9645a4b149f6cafce00
   languageName: node
   linkType: hard
 
@@ -2741,7 +2741,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.6.3
     "@commitlint/config-conventional": ^17.6.3
-    "@prettier/plugin-xml": ^2.2.0
+    "@prettier/plugin-xml": ^3.1.0
     "@sapphire/eslint-config": ^4.4.2
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/ts-config": ^4.0.0
@@ -10386,7 +10386,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:>=2.4.0, prettier@npm:^2.8.2, prettier@npm:^2.8.8":
+"prettier@npm:>=3.0.0":
+  version: 3.0.0
+  resolution: "prettier@npm:3.0.0"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 6a832876a1552dc58330d2467874e5a0b46b9ccbfc5d3531eb69d15684743e7f83dc9fbd202db6270446deba9c82b79d24383d09924c462b457136a759425e33
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.8.2, prettier@npm:^2.8.8":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
