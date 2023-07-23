@@ -23,7 +23,7 @@
 		"@commitlint/cli": "^17.6.3",
 		"@commitlint/config-conventional": "^17.6.3",
 		"@prettier/plugin-xml": "^2.2.0",
-		"@sapphire/eslint-config": "^4.4.2",
+		"@sapphire/eslint-config": "^5.0.0",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^4.0.0",
 		"@types/gradient-string": "^1.1.2",
