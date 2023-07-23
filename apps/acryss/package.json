@@ -16,7 +16,7 @@
 	},
 	"dependencies": {
 		"@discordjs/collection": "^1.5.1",
-		"@prisma/client": "^4.14.1",
+		"@prisma/client": "^5.0.0",
 		"@sapphire/utilities": "3.13.0",
 		"@skyra/env-utilities": "^1.2.1",
 		"@skyra/internal": "workspace:^",
@@ -25,7 +25,7 @@
 		"tslib": "^2.6.0"
 	},
 	"devDependencies": {
-		"prisma": "^4.14.1",
+		"prisma": "^5.0.0",
 		"typescript": "^5.1.6"
 	}
 }
