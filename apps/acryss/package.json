@@ -22,7 +22,7 @@
 		"@skyra/internal": "workspace:^",
 		"@skyra/logger": "^2.0.1",
 		"@skyra/start-banner": "^2.0.0",
-		"tslib": "^2.6.0"
+		"tslib": "^2.6.1"
 	},
 	"devDependencies": {
 		"prisma": "^5.0.0",

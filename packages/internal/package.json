@@ -20,7 +20,7 @@
 		"@discordjs/collection": "^1.5.1",
 		"@sapphire/utilities": "3.13.0",
 		"@skyra/env-utilities": "^1.2.1",
-		"tslib": "^2.6.0"
+		"tslib": "^2.6.1"
 	},
 	"devDependencies": {
 		"typescript": "^5.1.6",
