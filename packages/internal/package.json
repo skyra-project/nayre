@@ -17,13 +17,13 @@
 		"lint": "eslint --fix --ext ts src"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^1.5.2",
+		"@discordjs/collection": "^1.5.3",
 		"@sapphire/utilities": "3.13.0",
 		"@skyra/env-utilities": "^1.2.1",
-		"tslib": "^2.6.1"
+		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
 		"typescript": "^5.1.6",
-		"vitest": "^0.34.1"
+		"vitest": "^0.34.2"
 	}
 }
