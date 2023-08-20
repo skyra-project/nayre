@@ -15,14 +15,14 @@
 		"lint": "eslint --fix --ext ts src"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^1.5.2",
+		"@discordjs/collection": "^1.5.3",
 		"@prisma/client": "^5.1.1",
 		"@sapphire/utilities": "3.13.0",
 		"@skyra/env-utilities": "^1.2.1",
 		"@skyra/internal": "workspace:^",
 		"@skyra/logger": "^2.0.1",
 		"@skyra/start-banner": "^2.0.0",
-		"tslib": "^2.6.1"
+		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
 		"prisma": "^5.1.1",
