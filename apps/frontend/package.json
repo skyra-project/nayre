@@ -17,10 +17,10 @@
 		"@tailwindcss/typography": "^0.5.10",
 		"@vite-pwa/nuxt": "^0.1.1",
 		"next-auth": "^4.23.1",
-		"nuxt": "^3.7.1",
+		"nuxt": "^3.7.3",
 		"sitemap": "^7.1.1",
 		"typescript": "^5.2.2",
 		"vite-plugin-pwa": "^0.16.5",
-		"vue-tsc": "1.8.10"
+		"vue-tsc": "1.8.11"
 	}
 }
