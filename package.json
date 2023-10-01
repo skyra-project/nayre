@@ -21,16 +21,16 @@
 		"postinstall": "husky install .github/husky && yarn workspace @skyra/acryss prisma:generate"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.7.1",
+		"@commitlint/cli": "^17.7.2",
 		"@commitlint/config-conventional": "^17.7.0",
 		"@prettier/plugin-xml": "^3.2.1",
 		"@sapphire/eslint-config": "^5.0.2",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.0",
 		"@types/gradient-string": "^1.1.3",
-		"@types/node": "^20.6.4",
-		"@typescript-eslint/eslint-plugin": "^6.7.2",
-		"@typescript-eslint/parser": "^6.7.2",
+		"@types/node": "^20.8.0",
+		"@typescript-eslint/eslint-plugin": "^6.7.3",
+		"@typescript-eslint/parser": "^6.7.3",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.50.0",
 		"eslint-config-prettier": "^9.0.0",
@@ -42,7 +42,7 @@
 		"turbo": "^1.10.14",
 		"typescript": "^5.2.2",
 		"vite": "^4.4.9",
-		"vitest": "^0.34.5"
+		"vitest": "^0.34.6"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
