@@ -18,7 +18,7 @@
 		"lint": "turbo run lint",
 		"prettier": "prettier --ignore-path=.prettierignore",
 		"format": "prettier --write .",
-		"postinstall": "husky install .github/husky && yarn workspace @skyra/acryss prisma:generate"
+		"postinstall": "yarn workspace @skyra/acryss prisma:generate"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.8.0",
@@ -35,7 +35,6 @@
 		"eslint": "^8.51.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-prettier": "^5.0.1",
-		"husky": "^8.0.3",
 		"lint-staged": "^15.0.0",
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.6",
