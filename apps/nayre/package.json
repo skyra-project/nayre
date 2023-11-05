@@ -23,7 +23,7 @@
 		"@skyra/logger": "^2.0.1",
 		"@skyra/shared-http-pieces": "^1.1.0",
 		"@skyra/start-banner": "^2.0.0",
-		"discord-api-types": "^0.37.61",
+		"discord-api-types": "^0.37.62",
 		"gradient-string": "^2.0.2",
 		"tslib": "^2.6.2"
 	},
