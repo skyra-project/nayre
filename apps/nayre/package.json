@@ -14,7 +14,7 @@
 		"lint": "eslint --fix --ext ts src"
 	},
 	"dependencies": {
-		"@discordjs/builders": "^1.6.5",
+		"@discordjs/builders": "^1.7.0",
 		"@discordjs/collection": "^1.5.3",
 		"@skyra/env-utilities": "^1.2.1",
 		"@skyra/http-framework": "^1.2.0",
@@ -23,7 +23,7 @@
 		"@skyra/logger": "^2.0.1",
 		"@skyra/shared-http-pieces": "^1.1.0",
 		"@skyra/start-banner": "^2.0.0",
-		"discord-api-types": "^0.37.62",
+		"discord-api-types": "^0.37.63",
 		"gradient-string": "^2.0.2",
 		"tslib": "^2.6.2"
 	},
