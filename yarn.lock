@@ -1671,6 +1671,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@discordjs/collection@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@discordjs/collection@npm:2.0.0"
+  checksum: 58e91ed7f29671c1c6fe98d2e23599100c1098fe26e0ca71ff52e15bacd95407e0b56c69155403a81e07d9abf208aa39f57404e80f5d2f6fb37c150e1262265a
+  languageName: node
+  linkType: hard
+
 "@discordjs/formatters@npm:^0.3.3":
   version: 0.3.3
   resolution: "@discordjs/formatters@npm:0.3.3"
@@ -3245,7 +3252,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/acryss@workspace:apps/acryss"
   dependencies:
-    "@discordjs/collection": "npm:^1.5.3"
+    "@discordjs/collection": "npm:^2.0.0"
     "@prisma/client": "npm:^5.5.2"
     "@sapphire/utilities": "npm:3.13.0"
     "@skyra/env-utilities": "npm:^1.2.1"
@@ -3312,7 +3319,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/internal@workspace:packages/internal"
   dependencies:
-    "@discordjs/collection": "npm:^1.5.3"
+    "@discordjs/collection": "npm:^2.0.0"
     "@sapphire/utilities": "npm:3.13.0"
     "@skyra/env-utilities": "npm:^1.2.1"
     tslib: "npm:^2.6.2"
@@ -3381,7 +3388,7 @@ __metadata:
   resolution: "@skyra/nayre@workspace:apps/nayre"
   dependencies:
     "@discordjs/builders": "npm:^1.7.0"
-    "@discordjs/collection": "npm:^1.5.3"
+    "@discordjs/collection": "npm:^2.0.0"
     "@skyra/env-utilities": "npm:^1.2.1"
     "@skyra/http-framework": "npm:^1.2.0"
     "@skyra/http-framework-i18n": "npm:^1.1.0"

@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"@discordjs/builders": "^1.7.0",
-		"@discordjs/collection": "^1.5.3",
+		"@discordjs/collection": "^2.0.0",
 		"@skyra/env-utilities": "^1.2.1",
 		"@skyra/http-framework": "^1.2.0",
 		"@skyra/http-framework-i18n": "^1.1.0",
