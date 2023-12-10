@@ -23,11 +23,11 @@
 		"@skyra/logger": "^2.0.2",
 		"@skyra/shared-http-pieces": "^1.1.0",
 		"@skyra/start-banner": "^2.0.0",
-		"discord-api-types": "^0.37.65",
+		"discord-api-types": "^0.37.66",
 		"gradient-string": "^2.0.2",
 		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
-		"typescript": "^5.3.2"
+		"typescript": "^5.3.3"
 	}
 }
