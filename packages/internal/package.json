@@ -19,7 +19,7 @@
 	"dependencies": {
 		"@discordjs/collection": "^1.5.3",
 		"@sapphire/utilities": "3.14.0",
-		"@skyra/env-utilities": "^1.2.1",
+		"@skyra/env-utilities": "^1.2.2",
 		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
