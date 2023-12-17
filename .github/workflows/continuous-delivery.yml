@@ -28,7 +28,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Acryss Docker image
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v5.1.0
         with:
           push: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
           context: .
@@ -52,7 +52,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Nayre Docker image
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v5.1.0
         with:
           push: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
           context: .
@@ -76,7 +76,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Frontend Docker image
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v5.1.0
         with:
           push: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
           context: .
