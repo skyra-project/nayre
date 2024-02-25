@@ -17,7 +17,7 @@
 		"@tailwindcss/typography": "^0.5.10",
 		"@vite-pwa/nuxt": "^0.5.0",
 		"next-auth": "^4.24.6",
-		"nuxt": "^3.10.2",
+		"nuxt": "^3.10.3",
 		"sitemap": "^7.1.1",
 		"typescript": "^5.3.3",
 		"vite-plugin-pwa": "^0.19.0",
