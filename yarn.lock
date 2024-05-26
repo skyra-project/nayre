@@ -3518,7 +3518,7 @@ __metadata:
     "@vite-pwa/nuxt": "npm:^0.5.0"
     next-auth: "npm:^4.24.6"
     nuxt: "npm:^3.10.3"
-    sitemap: "npm:^7.1.1"
+    sitemap: "npm:^8.0.0"
     typescript: "npm:^5.3.3"
     vite-plugin-pwa: "npm:^0.19.2"
     vue-tsc: "npm:2.0.3"
@@ -11960,9 +11960,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sitemap@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "sitemap@npm:7.1.1"
+"sitemap@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "sitemap@npm:8.0.0"
   dependencies:
     "@types/node": "npm:^17.0.5"
     "@types/sax": "npm:^1.2.1"
@@ -11970,7 +11970,7 @@ __metadata:
     sax: "npm:^1.2.4"
   bin:
     sitemap: dist/cli.js
-  checksum: 10/b2b493630440713162e8637b0cd203c0dd3fe1b862af3e75542df883cdb5e63aef03aa0bd7eaeef772f654311295721edd47c45990813df002b017b1cdd2e751
+  checksum: 10/8af7ddbf3753f467ec01507cc19710a8846effbbb17c506e6c09aed8c8f445fa9ad7a8bdcb7654183fc755940470a4a194c2c117ad5b9f522d12ca62a8f4d173
   languageName: node
   linkType: hard
 

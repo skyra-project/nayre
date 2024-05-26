@@ -18,7 +18,7 @@
 		"@vite-pwa/nuxt": "^0.5.0",
 		"next-auth": "^4.24.6",
 		"nuxt": "^3.10.3",
-		"sitemap": "^7.1.1",
+		"sitemap": "^8.0.0",
 		"typescript": "^5.3.3",
 		"vite-plugin-pwa": "^0.19.2",
 		"vue-tsc": "2.0.3"
