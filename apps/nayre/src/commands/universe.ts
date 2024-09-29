@@ -1,6 +1,6 @@
 import { LanguageKeys } from '#lib/i18n/LanguageKeys';
 import { acryssRequest } from '#lib/utilities/acryss';
-import { Command, RegisterCommand, RegisterSubCommand } from '@skyra/http-framework';
+import { Command, RegisterCommand, RegisterSubcommand } from '@skyra/http-framework';
 import { applyLocalizedBuilder, resolveUserKey } from '@skyra/http-framework-i18n';
 import { Client, MaximumSystems, Server } from '@skyra/internal';
 import { MessageFlags, PermissionFlagsBits, Routes, type RESTGetAPIGuildResult } from 'discord-api-types/v10';
@@ -13,7 +13,7 @@ const Root = LanguageKeys.Commands.Universe;
 		.setDMPermission(false)
 )
 export class UserCommand extends Command {
-	@RegisterSubCommand((builder) =>
+	@RegisterSubcommand((builder) =>
 		applyLocalizedBuilder(builder, Root.Initialize)
 			.addIntegerOption((builder) => applyLocalizedBuilder(builder, Root.OptionsSystems).setMinValue(5).setMaxValue(MaximumSystems))
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsName).setMinLength(2).setMaxLength(64))

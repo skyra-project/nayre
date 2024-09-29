@@ -11,16 +11,16 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@nuxtjs/tailwindcss": "^6.11.4",
-		"@sidebase/nuxt-auth": "^0.5.0",
+		"@nuxtjs/tailwindcss": "^6.12.1",
+		"@sidebase/nuxt-auth": "^0.9.3",
 		"@skyra/internal": "workspace:^",
-		"@tailwindcss/typography": "^0.5.10",
-		"@vite-pwa/nuxt": "^0.5.0",
-		"next-auth": "^4.24.6",
-		"nuxt": "^3.10.3",
-		"sitemap": "^7.1.1",
-		"typescript": "^5.3.3",
-		"vite-plugin-pwa": "^0.19.2",
-		"vue-tsc": "2.0.3"
+		"@tailwindcss/typography": "^0.5.15",
+		"@vite-pwa/nuxt": "^0.10.5",
+		"next-auth": "^4.24.8",
+		"nuxt": "^3.13.2",
+		"sitemap": "^8.0.0",
+		"typescript": "^5.6.2",
+		"vite-plugin-pwa": "^0.20.5",
+		"vue-tsc": "2.1.6"
 	}
 }
