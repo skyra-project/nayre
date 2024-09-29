@@ -1,7 +1,7 @@
 import { LanguageKeys } from '#lib/i18n/LanguageKeys';
 import { acryssRequest } from '#lib/utilities/acryss';
 import { inlineCode } from '@discordjs/builders';
-import { Command, RegisterCommand, RegisterSubCommand } from '@skyra/http-framework';
+import { Command, RegisterCommand, RegisterSubcommand } from '@skyra/http-framework';
 import { applyLocalizedBuilder, resolveUserKey } from '@skyra/http-framework-i18n';
 import { Client, displayPlanetId, Server } from '@skyra/internal';
 import { MessageFlags } from 'discord-api-types/v10';
@@ -23,7 +23,7 @@ export class UserCommand extends Command {
 		});
 	}
 
-	@RegisterSubCommand((builder) => applyLocalizedBuilder(builder, Root.Initialize))
+	@RegisterSubcommand((builder) => applyLocalizedBuilder(builder, Root.Initialize))
 	public async initialize(interaction: Command.ChatInputInteraction) {
 		const response = await acryssRequest(interaction.user.id, Client.writePlayerCreate({ universeId: BigInt(interaction.guildId!) }));
 		if (Server.isOk(response)) {
@@ -38,7 +38,7 @@ export class UserCommand extends Command {
 		return interaction.reply({ content, flags: MessageFlags.Ephemeral });
 	}
 
-	@RegisterSubCommand((builder) =>
+	@RegisterSubcommand((builder) =>
 		applyLocalizedBuilder(builder, Root.Get) //
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsPlanet).setAutocomplete(true).setRequired(true))
 	)
@@ -46,7 +46,7 @@ export class UserCommand extends Command {
 		void interaction;
 	}
 
-	@RegisterSubCommand((builder) =>
+	@RegisterSubcommand((builder) =>
 		applyLocalizedBuilder(builder, Root.Edit)
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsPlanet).setAutocomplete(true).setRequired(true))
 			.addStringOption((builder) => applyLocalizedBuilder(builder, Root.OptionsName))
@@ -55,7 +55,7 @@ export class UserCommand extends Command {
 		void interaction;
 	}
 
-	@RegisterSubCommand((builder) => applyLocalizedBuilder(builder, Root.List))
+	@RegisterSubcommand((builder) => applyLocalizedBuilder(builder, Root.List))
 	public list(interaction: Command.ChatInputInteraction) {
 		void interaction;
 	}
