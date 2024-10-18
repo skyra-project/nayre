@@ -11,7 +11,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@nuxtjs/tailwindcss": "^6.12.1",
+		"@nuxtjs/tailwindcss": "^6.12.2",
 		"@sidebase/nuxt-auth": "^0.9.3",
 		"@skyra/internal": "workspace:^",
 		"@tailwindcss/typography": "^0.5.15",
