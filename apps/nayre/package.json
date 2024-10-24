@@ -24,7 +24,7 @@
 		"@skyra/shared-http-pieces": "^1.2.2",
 		"@skyra/start-banner": "^2.0.1",
 		"discord-api-types": "^0.37.101",
-		"tslib": "^2.7.0"
+		"tslib": "^2.8.0"
 	},
 	"devDependencies": {
 		"typescript": "^5.6.2"
