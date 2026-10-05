@@ -15,7 +15,7 @@
 		"@sidebase/nuxt-auth": "^0.9.3",
 		"@skyra/internal": "workspace:^",
 		"@tailwindcss/typography": "^0.5.15",
-		"@vite-pwa/nuxt": "^0.10.5",
+		"@vite-pwa/nuxt": "^1.1.1",
 		"next-auth": "^4.24.8",
 		"nuxt": "^3.13.2",
 		"sitemap": "^8.0.0",
